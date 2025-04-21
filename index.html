@@ -1,60 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IGFEJ - Instituto de Gestão Financeira e Equipamentos da Justiça</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 40px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav {
+      background-color: #005999;
+      display: flex;
+      gap: 20px;
+      padding: 10px 40px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      background-color: #e6eef6;
+      padding: 40px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #555;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      flex: 1 1 300px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>IGFEJ - Instituto de Gestão Financeira e Equipamentos da Justiça</h1>
+  </header>
 
-  <h1>IGFEJ - Instituto de Gestão Financeira e Equipamentos da Justiça</h1>
-  <p>O Instituto de Gestão Financeira e Equipamentos da Justiça gere os recursos financeiros, patrimoniais e tecnológicos do Ministério da Justiça.</p>
+  <nav>
+    <a href="#">Sobre</a>
+    <a href="#">Instrumentos de Gestão</a>
+    <a href="#">Recrutamento</a>
+    <a href="#">Projetos</a>
+    <a href="#">Contactos</a>
+  </nav>
 
-  <div id="divicw" data-bind="399C40A4-623A-4AF3-9800-F83665CD4F88" data-org=""></div>
-  <script>
-    var i = {
-      t: function(t) {
-        var e = "https://media.imi.chat/widget/js/imichatinit.js";
-        try {
-          var o = new XMLHttpRequest;
-          o.onreadystatechange = function() {
-            if (this.readyState == 4) {
-              var t = document.getElementById("divicw");
-              if (this.status == 0) {
-                i.o(t);
-                return
-              }
-              var e = document.createElement("script");
-              e.innerHTML = this.responseText;
-              t.parentNode.insertBefore(e, t.nextSibling)
-            }
-          };
-          o.open("GET", e, true);
-          o.send()
-        } catch (s) {
-          console.error(s)
-        }
-      },
-      o: function(t) {
-        t.insertAdjacentHTML("afterend", '<iframe id="tls_al_frm" frameborder="0" style="overflow: hidden;height: 208px;width: 394px;position: fixed;display: block;right: 48px;bottom: 12px;z-index: 99999; display:none;"></iframe>');
-        var e = document.getElementById("tls_al_frm");
-        var o = e.contentWindow || (e.contentDocument.document || e.contentDocument);
-        o.document.open();
-        o.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Untitled Document</title><style>body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;color: #99a0b0;font-size: 14px;}.popover__content{background-color: #fbfbfe; padding: 1.5rem; border-radius: 5px; width: 300px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);position: relative;}.popover__message{font-weight: 600;color:#56627c;font-size: 16px;}.pull-left{float:left;}.clearfix{clear: both;}.hdr-txt{width: 218px; margin-top: 3px;}.para-txt a{text-decoration: none;color: #005cde;}.close-btn{position: absolute;right:15px;top:15px;}.close-btn a{text-decoration: none;font-weight: 400; color: #56627c; font-size: 16px;}</style></head><body><div class="popover__content"><div class="close-btn"><a href="#" onclick="closeTLSAlert();">X</a></div><div class="popover__message"><div class="pull-left hdr-txt">This browser version is not supported on LiveChat.</div></div><div class="clearfix"></div><p class="para-txt">Please update your browser to the latest version and re-open the website to access the widget. </p></div><script>function closeTLSAlert(){window.parent.postMessage({key: "close_tls_alert",value: "close_tls_alert",action: "close_tls_alert"}, "*");}<\/script></body></html>');
-        o.document.close();
-        e.style.display = "block";
-        window.addEventListener("message", function(t) {
-          if (t.data.action == "close_tls_alert") {
-            i.s()
-          }
-        })
-      },
-      s: function() {
-        var t = document.getElementById("tls_al_frm");
-        t.remove()
-      }
-    };
-    i.t(function(t) {});
-  </script>
+  <div class="hero">
+    <h2>Gestão Financeira e Tecnológica da Justiça</h2>
+    <p>O IGFEJ gere os recursos financeiros, patrimoniais e tecnológicos do Ministério da Justiça.</p>
+  </div>
 
+  <section class="content">
+    <div class="card">
+      <h3>Quem Somos</h3>
+      <p>Saiba mais sobre a missão, visão e estrutura organizativa do IGFEJ.</p>
+    </div>
+    <div class="card">
+      <h3>Relatórios e Contas</h3>
+      <p>Aceda aos documentos que demonstram a transparência da gestão pública.</p>
+    </div>
+    <div class="card">
+      <h3>Projetos PRR</h3>
+      <p>Veja como o IGFEJ está a implementar fundos europeus na modernização da justiça.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 IGFEJ - Instituto de Gestão Financeira e Equipamentos da Justiça. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
