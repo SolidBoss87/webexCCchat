@@ -133,6 +133,46 @@
     .social-links a:hover {
       text-decoration: underline;
     }
+    .carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel img {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 89, 153, 0.8);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
+}
+
+.carousel button:hover {
+  background-color: rgba(0, 68, 119, 0.9);
+}
   </style>
 </head>
 <body>
@@ -169,11 +209,54 @@
   </section>
 
   <section class="gallery">
-    <h2>Galeria de Fotos</h2>
-    <img src="https://via.placeholder.com/250x150?text=Evento+1" alt="Foto Evento 1" />
-    <img src="https://via.placeholder.com/250x150?text=Evento+2" alt="Foto Evento 2" />
-    <img src="https://via.placeholder.com/250x150?text=Evento+3" alt="Foto Evento 3" />
-  </section>
+  <h2>Galeria de Fotos</h2>
+  <div class="carousel">
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" 
+         alt="Jogador de airsoft em ação - Soldier of Fortune">
+    <button class="next" onclick="nextSlide()">❯</button>
+  </div>
+</section>
+
+<script>
+  const images = [
+    {
+      src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=",
+      alt: "Jogador de airsoft em ação - Soldier of Fortune"
+    },
+    {
+      src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=",
+      alt: "Soldados de airsoft em missão tática na selva"
+    },
+    {
+      src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=",
+      alt: "Equipa SWAT durante uma operação de airsoft urbano"
+    }
+  ];
+
+  let current = 0;
+  const imgEl = document.getElementById("carousel-image");
+
+  function showSlide(index) {
+    current = (index + images.length) % images.length;
+    imgEl.src = images[current].src;
+    imgEl.alt = images[current].alt;
+  }
+
+  function nextSlide() {
+    showSlide(current + 1);
+  }
+
+  function prevSlide() {
+    showSlide(current - 1);
+  }
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+  });
+</script>
+
 
   <form>
     <h3>Inscrição / Contacto</h3>
