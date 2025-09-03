@@ -1,331 +1,245 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SOLIDBOSS AIRSOFT - Tactical Combat Arms</title>
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoAI Solutions | Automatização Inteligente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 20px 40px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    nav {
-      background-color: #005999;
-      display: flex;
-      gap: 20px;
-      padding: 10px 40px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background-color: #e6eef6;
-      padding: 40px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 18px;
-      color: #555;
-    }
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 40px;
-    }
-    .card {
-      flex: 1 1 300px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
-    }
-    .card h3 {
-      margin-top: 0;
-    }
-    .gallery {
-      padding: 0;
-      background-color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    .carousel {
-      position: relative;
-      width: 100%;
-      margin: 0;
-      text-align: center;
-    }
-    .carousel img {
-      width: 100%;
-      display: block;
-      max-height: 500px;
-      object-fit: cover;
-    }
-    .carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 89, 153, 0.8);
-      color: white;
-      border: none;
-      padding: 20px; 
-      font-size: 36px; 
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    .carousel .prev { left: 10px; }
-    .carousel .next { right: 10px; }
-    .carousel button:hover { background-color: rgba(0, 68, 119, 0.9); }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #f5f7fa; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
 
-    form {
-      background-color: white;
-      padding: 40px;
-      margin: 40px auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 600px;
+    header {
+      background: #0a2e5f;
+      color: #fff;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    form h3 {
-      margin-top: 0;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #005999;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #004477;
-    }
-    .message {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    .social-links a {
-      margin: 0 10px;
-      color: white;
+    header h1 { font-weight: 700; font-size: 1.8rem; }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
       text-decoration: none;
-      font-size: 18px;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-    .social-links a:hover {
-      text-decoration: underline;
+    nav a:hover { color: #ffcc00; }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 10%;
+      background: linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%);
+      color: #fff;
     }
-    /* n8n chat container */
-    #n8n-chat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
+    .hero-text { max-width: 600px; animation: slideIn 1s ease-out; }
+    .hero-text h2 { font-size: 2.8rem; margin-bottom: 20px; }
+    .hero-text p { font-size: 1.2rem; margin-bottom: 30px; }
+    .hero-text a {
+      background: #ffcc00;
+      color: #0a2e5f;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .hero-text a:hover { background: #e6b800; }
+    .hero img { max-width: 500px; border-radius: 10px; animation: fadeIn 2s ease-out; }
+
+    @keyframes slideIn { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .section { padding: 60px 10%; }
+    .section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+    .benefits {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .benefit-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      flex: 1;
+      min-width: 250px;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .benefit-card:hover { transform: translateY(-5px); }
+    .benefit-card img { width: 60px; margin-bottom: 20px; }
+    .benefit-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+    .benefit-card p { color: #555; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card img { width: 50px; margin-bottom: 15px; }
+
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .cta {
+      background: #0055a5;
+      color: #fff;
+      text-align: center;
+      padding: 60px 10%;
+    }
+    .cta a {
+      background: #ffcc00;
+      color: #0a2e5f;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .cta a:hover { background: #e6b800; }
+
+    footer {
+      background: #0a2e5f;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10%;
+    }
+
+    @media(max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; gap: 40px; }
+      .benefits { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>SOLIDBOSS AIRSOFT - Tactical Combat Arms</h1>
+    <h1>AutoAI Solutions</h1>
+    <nav>
+      <a href="#benefits">Benefícios</a>
+      <a href="#services">Serviços</a>
+      <a href="#testimonials">Depoimentos</a>
+      <a href="#contact">Contato</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Sobre</a>
-    <a href="#">Eventos</a>
-    <a href="#">Equipas</a>
-    <a href="#">Notícias</a>
-    <a href="#">Contactos</a>
-  </nav>
-
-  <div class="hero">
-    <h2>Unidos pelo Airsoft, Movidos pela Ação</h2>
-    <p>A SOLIDBOSS promove o desporto de airsoft em Portugal com eventos táticos, espírito de equipa e adrenalina pura.</p>
-  </div>
-
-  <section class="content">
-    <div class="card">
-      <h3>Quem Somos</h3>
-      <p>Somos uma comunidade dedicada ao airsoft, especializada na organização de eventos e simulações de combate realista.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Automatize o seu negócio com AI e n8n</h2>
+      <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
+      <a href="#contact">Agende uma Demonstração</a>
     </div>
-    <div class="card">
-      <h3>Próximos Eventos</h3>
-      <p>Consulta as datas dos jogos e operações táticas em vários pontos do país. Junta-te à ação!</p>
-    </div>
-    <div class="card">
-      <h3>Notícias e Vídeos</h3>
-      <p>Acompanha as nossas redes sociais para veres resumos de partidas, highlights e novidades do mundo airsoft.</p>
+    <img src="https://via.placeholder.com/500x350.png?text=Automatização+AI" alt="Automatização AI">
+  </section>
+
+  <!-- Benefícios -->
+  <section class="section" id="benefits">
+    <h2>Benefícios de Automatizar</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <img src="https://via.placeholder.com/60.png?text=⏱️" alt="Economia de tempo">
+        <h3>Economia de Tempo</h3>
+        <p>Automatize tarefas repetitivas e concentre-se em decisões estratégicas.</p>
+      </div>
+      <div class="benefit-card">
+        <img src="https://via.placeholder.com/60.png?text=💰" alt="Redução de custos">
+        <h3>Redução de Custos</h3>
+        <p>Implemente fluxos inteligentes que reduzem erros e otimizam recursos.</p>
+      </div>
+      <div class="benefit-card">
+        <img src="https://via.placeholder.com/60.png?text=🤖" alt="AI Avançada">
+        <h3>AI Avançada</h3>
+        <p>Use AI Agents e LLMs para decisões automáticas e respostas inteligentes.</p>
+      </div>
     </div>
   </section>
 
-  <section class="gallery">
-    <h2>Galeria de Fotos</h2>
-    <div class="carousel">
-      <button class="prev" onclick="prevSlide()">❮</button>
-      <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" alt="Jogador de airsoft em ação - Soldier of Fortune">
-      <button class="next" onclick="nextSlide()">❯</button>
+  <!-- Serviços -->
+  <section class="section" id="services">
+    <h2>Nossas Soluções</h2>
+    <div class="services">
+      <div class="service-card">
+        <img src="https://via.placeholder.com/50.png?text=n8n" alt="n8n">
+        <h3>Automação de Fluxos</h3>
+        <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://via.placeholder.com/50.png?text=AI" alt="AI Agents">
+        <h3>AI Agents Inteligentes</h3>
+        <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://via.placeholder.com/50.png?text=LLM" alt="LLMs">
+        <h3>Processamento de Linguagem</h3>
+        <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
+      </div>
     </div>
   </section>
 
-  <form id="contactForm">
-    <h3>Inscrição / Contacto</h3>
+  <!-- Depoimentos -->
+  <section class="section" id="testimonials">
+    <h2>O que os clientes dizem</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
+      </div>
+      <div class="testimonial">
+        "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
+      </div>
+      <div class="testimonial">
+        "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
+      </div>
+    </div>
+  </section>
 
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required />
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Pronto para automatizar o seu negócio?</h2>
+    <a href="mailto:contact@autoaisolutions.com">Solicite uma Demonstração</a>
+  </section>
 
-    <label for="equipa">Escolhe a tua equipa:</label>
-    <select id="equipa" name="equipa" required>
-      <option value="">-- Seleciona uma opção --</option>
-      <option value="BAP">BAP</option>
-      <option value="Shadow Wolves">Shadow Wolves</option>
-      <option value="Crimson Hawks">Crimson Hawks</option>
-      <option value="Iron Titans">Iron Titans</option>
-      <option value="Ghost Reapers">Ghost Reapers</option>
-    </select>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
-
-    <label for="mensagem">Mensagem:</label>
-    <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
-    <button type="submit">Enviar</button>
-    <div class="message" id="formMessage"></div>
-  </form>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 SOLIDBOSS AIRSOFT - Tactical Combat Arms. Todos os direitos reservados.</p>
-    <div class="social-links">
-      <a href="https://www.youtube.com/@solidbossairsoft" target="_blank">YouTube</a> |
-      <a href="https://www.instagram.com/solidbossairsoft" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com/solidbossairsoft" target="_blank">Facebook</a>
-    </div>
+    <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- n8n chat container -->
-  <div id="n8n-chat"></div>
-
-  <script>
-    // Carrossel
-    const images = [
-      { src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=", alt: "Jogador de airsoft em ação - Soldier of Fortune" },
-      { src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=", alt: "Soldados de airsoft em missão tática na selva" },
-      { src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=", alt: "Equipa SWAT durante uma operação de airsoft urbano" }
-    ];
-    let current = 0;
-    const imgEl = document.getElementById("carousel-image");
-    function showSlide(index) {
-      current = (index + images.length) % images.length;
-      imgEl.src = images[current].src;
-      imgEl.alt = images[current].alt;
-    }
-    function nextSlide() { showSlide(current + 1); }
-    function prevSlide() { showSlide(current - 1); }
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
-    });
-
-    // Formulário
-    const form = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = {
-        nome: form.nome.value,
-        equipa: form.equipa.value,
-        email: form.email.value,
-        mensagem: form.mensagem.value
-      };
-      fetch("https://exciting-sawfish-actively.ngrok-free.app/webhook/receber-wxcc", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-      .then(res => {
-        if (res.ok) {
-          formMessage.style.color = "green";
-          formMessage.textContent = "Mensagem enviada com sucesso!";
-          form.reset();
-        } else {
-          throw new Error("Erro ao enviar mensagem.");
-        }
-      })
-      .catch(err => {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Erro ao enviar mensagem.";
-        console.error(err);
-      });
-    });
-  </script>
-
-  <!-- n8n.chat -->
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    createChat({
-      webhookUrl: 'https://exciting-sawfish-actively.ngrok-free.app/webhook/074558be-f602-45e3-8083-1a0fb6142fef/chat', // coloca aqui o teu webhook
-      webhookConfig: { method: 'POST', headers: {} },
-      target: '#n8n-chat',
-      mode: 'window',
-      chatInputKey: 'chatInput',
-      chatSessionKey: 'sessionId',
-      loadPreviousSession: true,
-      metadata: {},
-      showWelcomeScreen: false,
-      defaultLanguage: 'en',
-      initialMessages: [
-        'Olá! 👋',
-        'Eu sou o Pedro. Como posso ajudá-lo hoje?'
-      ],
-      i18n: {
-        en: {
-          title: 'Olá! 👋',
-          subtitle: "Comece uma conversa. Estou aqui para ajudar.",
-          footer: '',
-          getStarted: 'Nova Conversa',
-          inputPlaceholder: 'Escreve a tua pergunta aqui...',
-        },
-      },
-      enableStreaming: false,
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
