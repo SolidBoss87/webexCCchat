@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AutoAI Solutions | Automatização Inteligente</title>
-  <meta name="description" content="Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.">
-  <meta name="keywords" content="Automação, AI, n8n, LLMs, Inteligência Artificial, Eficiência, Produtividade">
+  <meta name="description" content="Automatize processos com AI, LLMs e n8n. Reduza custos, aumente a produtividade e elimine tarefas repetitivas com a AutoAI Solutions.">
+  <meta name="keywords" content="Automação, AI, LLMs, n8n, produtividade, eficiência, negócios, soluções inteligentes">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.min.css">
 </head>
-
 <body>
 
 <header>
   <h1>AutoAI Solutions</h1>
   <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
   <nav id="nav">
     <a href="#benefits">Benefícios</a>
@@ -33,7 +30,7 @@
     <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
     <a href="#contact">Agende uma Demonstração</a>
   </div>
-  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80&format=webp" alt="Automatização AI" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Automatização AI" loading="lazy" width="500" height="350">
   <div class="scroll-cue"><span></span></div>
 </section>
 
@@ -72,7 +69,7 @@
       <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
     </div>
     <div class="service-card">
-      <img src="https://t4.ftcdn.net/jpg/07/56/11/69/360_F_756116963_MKdL7O7BKH1ZHicpGXHd9ys9xDMhkGr2.webp" alt="LLMs" style="width:60px;" loading="lazy">
+      <img src="https://t4.ftcdn.net/jpg/07/56/11/69/360_F_756116963_MKdL7O7BKH1ZHicpGXHd9ys9xDMhkGr2.jpg" alt="LLMs" style="width:60px;" loading="lazy">
       <h3>Processamento de Linguagem</h3>
       <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
     </div>
@@ -83,9 +80,15 @@
   <h2>O que os clientes dizem</h2>
   <div class="slider-container">
     <div class="slider" id="slider">
-      <div class="slide testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div>
-      <div class="slide testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div>
-      <div class="slide testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div>
+      <div class="slide testimonial">
+        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
+      </div>
+      <div class="slide testimonial">
+        "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
+      </div>
+      <div class="slide testimonial">
+        "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
+      </div>
     </div>
   </div>
 </section>
@@ -98,35 +101,12 @@
 <footer>
   <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
   <div class="social">
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp"></a>
+    <a href="#">Facebook</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Twitter</a>
   </div>
 </footer>
 
-<script>
-// Hamburger menu
-const menuToggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav');
-menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
-
-// Scroll animation
-const observer = new IntersectionObserver(entries => { 
-  entries.forEach(entry => { 
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); } 
-  }); 
-}, { threshold:0.2 });
-document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial')
-  .forEach(el => observer.observe(el));
-
-// Slider automático
-let index = 0;
-const slides = document.querySelectorAll('.slide');
-const slider = document.getElementById('slider');
-setInterval(()=>{index=(index+1)%slides.length; slider.style.transform=`translateX(-${index*100}%)`;},4000);
-</script>
-
+<script src="scripts.min.js" defer></script>
 </body>
 </html>
-
