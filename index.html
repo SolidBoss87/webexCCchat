@@ -151,6 +151,13 @@
     .social-links a:hover {
       text-decoration: underline;
     }
+    /* n8n chat container */
+    #n8n-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
@@ -230,12 +237,8 @@
     </div>
   </footer>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    createChat({
-      webhookUrl: 'https://exciting-sawfish-actively.ngrok-free.app/webhook/074558be-f602-45e3-8083-1a0fb6142fef/chat'
-    });
-  </script>
+  <!-- n8n chat container -->
+  <div id="n8n-chat"></div>
 
   <script>
     // Carrossel
@@ -290,8 +293,41 @@
       });
     });
   </script>
+
+  <!-- n8n.chat -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://exciting-sawfish-actively.ngrok-free.app/webhook/074558be-f602-45e3-8083-1a0fb6142fef/chat', // coloca aqui o teu webhook
+      webhookConfig: { method: 'POST', headers: {} },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      loadPreviousSession: true,
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        'Olá! 👋',
+        'Eu sou o Pedro. Como posso ajudá-lo hoje?'
+      ],
+      i18n: {
+        en: {
+          title: 'Olá! 👋',
+          subtitle: "Comece uma conversa. Estou aqui para ajudar.",
+          footer: '',
+          getStarted: 'Nova Conversa',
+          inputPlaceholder: 'Escreve a tua pergunta aqui...',
+        },
+      },
+      enableStreaming: false,
+    });
+  </script>
 </body>
 </html>
+
+
 
 
 
