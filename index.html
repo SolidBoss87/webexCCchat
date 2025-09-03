@@ -68,7 +68,7 @@
       padding: 0;
       background-color: #fff;
       text-align: center;
-      position: relative; /* necessário para botões ficarem sobre o carrossel */
+      position: relative;
     }
     .carousel {
       position: relative;
@@ -83,7 +83,7 @@
       object-fit: cover;
     }
     .carousel button {
-      position: absolute; /* relativo ao carrossel */
+      position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background-color: rgba(0, 89, 153, 0.8);
@@ -111,7 +111,7 @@
     form h3 {
       margin-top: 0;
     }
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
@@ -197,8 +197,19 @@
 
   <form id="contactForm">
     <h3>Inscrição / Contacto</h3>
+
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required />
+
+    <label for="equipa">Escolhe a tua equipa:</label>
+    <select id="equipa" name="equipa" required>
+      <option value="">-- Seleciona uma opção --</option>
+      <option value="BAP">BAP</option>
+      <option value="Shadow Wolves">Shadow Wolves</option>
+      <option value="Crimson Hawks">Crimson Hawks</option>
+      <option value="Iron Titans">Iron Titans</option>
+      <option value="Ghost Reapers">Ghost Reapers</option>
+    </select>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required />
@@ -227,6 +238,7 @@
   </script>
 
   <script>
+    // Carrossel
     const images = [
       { src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=", alt: "Jogador de airsoft em ação - Soldier of Fortune" },
       { src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=", alt: "Soldados de airsoft em missão tática na selva" },
@@ -246,12 +258,14 @@
       if (e.key === "ArrowLeft") prevSlide();
     });
 
+    // Formulário
     const form = document.getElementById("contactForm");
     const formMessage = document.getElementById("formMessage");
     form.addEventListener("submit", function(e) {
       e.preventDefault();
       const data = {
         nome: form.nome.value,
+        equipa: form.equipa.value,
         email: form.email.value,
         mensagem: form.mensagem.value
       };
@@ -278,6 +292,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
