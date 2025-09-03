@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SOLIDBOSS AIRSOFT - Tactical Combat Arms</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -63,33 +64,28 @@
     .card h3 {
       margin-top: 0;
     }
-
     .gallery {
       padding: 40px;
       text-align: center;
       background-color: #fff;
     }
-
     .gallery img {
+      width: 250px;
+      margin: 10px;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
-
     form {
       background-color: white;
       padding: 40px;
-      margin: 40px;
+      margin: 40px auto;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
-
     form h3 {
       margin-top: 0;
     }
-
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -98,7 +94,6 @@
       border-radius: 6px;
       font-size: 16px;
     }
-
     button {
       background-color: #005999;
       color: white;
@@ -108,11 +103,13 @@
       cursor: pointer;
       font-size: 16px;
     }
-
     button:hover {
       background-color: #004477;
     }
-
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
     footer {
       background-color: #003366;
       color: white;
@@ -120,26 +117,21 @@
       padding: 20px;
       margin-top: 40px;
     }
-
     .social-links a {
       margin: 0 10px;
       color: white;
       text-decoration: none;
       font-size: 18px;
     }
-
     .social-links a:hover {
       text-decoration: underline;
     }
-
-    /* Carrossel ocupa 80% */
     .carousel {
       position: relative;
       max-width: 80%;
       margin: 0 auto;
       text-align: center;
     }
-
     .carousel img {
       width: 100%;
       max-height: 500px;
@@ -147,7 +139,6 @@
       object-fit: cover;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
-
     .carousel button {
       position: absolute;
       top: 50%;
@@ -161,18 +152,9 @@
       border-radius: 50%;
       z-index: 10;
     }
-
-    .carousel .prev {
-      left: 10px;
-    }
-
-    .carousel .next {
-      right: 10px;
-    }
-
-    .carousel button:hover {
-      background-color: rgba(0, 68, 119, 0.9);
-    }
+    .carousel .prev { left: 10px; }
+    .carousel .next { right: 10px; }
+    .carousel button:hover { background-color: rgba(0, 68, 119, 0.9); }
   </style>
 </head>
 <body>
@@ -193,54 +175,116 @@
     <p>A SOLIDBOSS promove o desporto de airsoft em Portugal com eventos táticos, espírito de equipa e adrenalina pura.</p>
   </div>
 
+  <section class="content">
+    <div class="card">
+      <h3>Quem Somos</h3>
+      <p>Somos uma comunidade dedicada ao airsoft, especializada na organização de eventos e simulações de combate realista.</p>
+    </div>
+    <div class="card">
+      <h3>Próximos Eventos</h3>
+      <p>Consulta as datas dos jogos e operações táticas em vários pontos do país. Junta-te à ação!</p>
+    </div>
+    <div class="card">
+      <h3>Notícias e Vídeos</h3>
+      <p>Acompanha as nossas redes sociais para veres resumos de partidas, highlights e novidades do mundo airsoft.</p>
+    </div>
+  </section>
+
   <section class="gallery">
     <h2>Galeria de Fotos</h2>
     <div class="carousel">
       <button class="prev" onclick="prevSlide()">❮</button>
-      <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" 
-           alt="Jogador de airsoft em ação - Soldier of Fortune">
+      <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" alt="Jogador de airsoft em ação - Soldier of Fortune">
       <button class="next" onclick="nextSlide()">❯</button>
     </div>
   </section>
 
-  <script>
-    const images = [
-      {
-        src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=",
-        alt: "Jogador de airsoft em ação - Soldier of Fortune"
-      },
-      {
-        src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=",
-        alt: "Soldados de airsoft em missão tática na selva"
-      },
-      {
-        src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=",
-        alt: "Equipa SWAT durante uma operação de airsoft urbano"
-      }
-    ];
+  <form id="contactForm">
+    <h3>Inscrição / Contacto</h3>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required />
 
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+    <div class="message" id="formMessage"></div>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 SOLIDBOSS AIRSOFT - Tactical Combat Arms. Todos os direitos reservados.</p>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@solidbossairsoft" target="_blank">YouTube</a> |
+      <a href="https://www.instagram.com/solidbossairsoft" target="_blank">Instagram</a> |
+      <a href="https://www.facebook.com/solidbossairsoft" target="_blank">Facebook</a>
+    </div>
+  </footer>
+
+  <!-- Widget do n8n.chat -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://exciting-sawfish-actively.ngrok-free.app/webhook/074558be-f602-45e3-8083-1a0fb6142fef/chat'
+    });
+  </script>
+
+  <script>
+    // Carrossel
+    const images = [
+      { src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=", alt: "Jogador de airsoft em ação - Soldier of Fortune" },
+      { src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=", alt: "Soldados de airsoft em missão tática na selva" },
+      { src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=", alt: "Equipa SWAT durante uma operação de airsoft urbano" }
+    ];
     let current = 0;
     const imgEl = document.getElementById("carousel-image");
-
     function showSlide(index) {
       current = (index + images.length) % images.length;
       imgEl.src = images[current].src;
       imgEl.alt = images[current].alt;
     }
-
-    function nextSlide() {
-      showSlide(current + 1);
-    }
-
-    function prevSlide() {
-      showSlide(current - 1);
-    }
-
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
     document.addEventListener("keydown", function(e) {
       if (e.key === "ArrowRight") nextSlide();
       if (e.key === "ArrowLeft") prevSlide();
     });
+
+    // Formulário para n8n webhook
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = {
+        nome: form.nome.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value
+      };
+      fetch("https://exciting-sawfish-actively.ngrok-free.app/webhook-test/receber-wxcc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          formMessage.style.color = "green";
+          formMessage.textContent = "Mensagem enviada com sucesso!";
+          form.reset();
+        } else {
+          throw new Error("Erro ao enviar mensagem.");
+        }
+      })
+      .catch(err => {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Erro ao enviar mensagem.";
+        console.error(err);
+      });
+    });
   </script>
 </body>
 </html>
+
+
 
