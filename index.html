@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoAI Solutions | Automatização Inteligente</title>
-<meta name="description" content="Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.">
-<meta name="keywords" content="Automação, AI, n8n, LLMs, Inteligência Artificial, Eficiência, Produtividade">
-
-<link rel="stylesheet" href="styles.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoAI Solutions | Automatização Inteligente</title>
+  <meta name="description" content="Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.">
+  <meta name="keywords" content="Automação, AI, n8n, LLMs, Inteligência Artificial, Eficiência, Produtividade">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -16,7 +15,9 @@
 <header>
   <h1>AutoAI Solutions</h1>
   <div class="menu-toggle" id="menu-toggle">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
   <nav id="nav">
     <a href="#benefits">Benefícios</a>
@@ -61,7 +62,7 @@
   <h2>Nossas Soluções</h2>
   <div class="services">
     <div class="service-card">
-      <img src="https://browserflow.io/images/N8N-badge.webp" alt="n8n" loading="lazy">
+      <img src="https://browserflow.io/images/N8N-badge.png" alt="n8n" loading="lazy">
       <h3>Automação de Fluxos</h3>
       <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
     </div>
@@ -104,8 +105,27 @@
   </div>
 </footer>
 
-<script src="scripts.min.js"></script>
+<script>
+// Hamburger menu
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
+
+// Scroll animation
+const observer = new IntersectionObserver(entries => { 
+  entries.forEach(entry => { 
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); } 
+  }); 
+}, { threshold:0.2 });
+document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial')
+  .forEach(el => observer.observe(el));
+
+// Slider automático
+let index = 0;
+const slides = document.querySelectorAll('.slide');
+const slider = document.getElementById('slider');
+setInterval(()=>{index=(index+1)%slides.length; slider.style.transform=`translateX(-${index*100}%)`;},4000);
+</script>
+
 </body>
 </html>
-
-
