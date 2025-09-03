@@ -65,9 +65,10 @@
       margin-top: 0;
     }
     .gallery {
-      padding: 0; /* imagem toca as margens */
+      padding: 0;
       background-color: #fff;
       text-align: center;
+      position: relative; /* necessário para botões ficarem sobre o carrossel */
     }
     .carousel {
       position: relative;
@@ -82,17 +83,17 @@
       object-fit: cover;
     }
     .carousel button {
-      position: fixed;
+      position: absolute; /* relativo ao carrossel */
       top: 50%;
       transform: translateY(-50%);
       background-color: rgba(0, 89, 153, 0.8);
       color: white;
       border: none;
-      padding: 20px; /* maior botão */
-      font-size: 36px; /* maior ícone */
+      padding: 20px; 
+      font-size: 36px; 
       cursor: pointer;
       border-radius: 50%;
-      z-index: 1000;
+      z-index: 10;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     .carousel .prev { left: 10px; }
@@ -218,7 +219,6 @@
     </div>
   </footer>
 
-  <!-- Widget do n8n.chat -->
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
     createChat({
@@ -227,7 +227,6 @@
   </script>
 
   <script>
-    // Carrossel
     const images = [
       { src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=", alt: "Jogador de airsoft em ação - Soldier of Fortune" },
       { src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=", alt: "Soldados de airsoft em missão tática na selva" },
@@ -247,7 +246,6 @@
       if (e.key === "ArrowLeft") prevSlide();
     });
 
-    // Formulário para n8n webhook
     const form = document.getElementById("contactForm");
     const formMessage = document.getElementById("formMessage");
     form.addEventListener("submit", function(e) {
@@ -280,6 +278,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
