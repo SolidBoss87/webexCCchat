@@ -28,18 +28,12 @@ nav a:hover { color:#ffcc00; }
 .section h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
 
 .benefits, .services, .testimonials { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-.benefit-card, .service-card, .testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px; max-width:300px; text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); position:relative; }
+.benefit-card, .service-card, .testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px; max-width:300px; text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); }
 .benefit-card:hover, .service-card:hover, .testimonial:hover { transform:translateY(-5px); }
-
+.benefit-card.visible, .service-card.visible, .testimonial.visible { opacity:1; transform: translateY(0); }
 .benefit-card img, .service-card img { width:60px; margin-bottom:20px; }
 .benefit-card h3, .service-card h3 { font-size:1.4rem; margin-bottom:15px; }
 .benefit-card p, .service-card p { color:#555; }
-
-.tooltip { position:absolute; bottom:110%; left:50%; transform:translateX(-50%); background:#0a2e5f; color:#fff; padding:8px 12px; border-radius:6px; font-size:0.9rem; white-space:nowrap; opacity:0; pointer-events:none; transition: opacity 0.3s; }
-.service-card:hover .tooltip { opacity:1; }
-
-.graph { width:100%; max-width:250px; margin:20px auto 0; height:120px; display:flex; align-items:flex-end; gap:5px; }
-.bar { flex:1; background:#0055a5; border-radius:6px 6px 0 0; transition: height 1s; }
 
 .slider-container { position:relative; width:100%; max-width:900px; overflow:hidden; }
 .slider { display:flex; transition: transform 0.5s ease-in-out; }
@@ -48,18 +42,13 @@ nav a:hover { color:#ffcc00; }
 .testimonial { font-style:italic; position:relative; }
 .testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:#0055a5; }
 
-.workflow { display:flex; justify-content:space-around; align-items:center; margin-top:40px; }
-.workflow-step { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); width:150px; text-align:center; position:relative; }
-.workflow-step::after { content:'→'; position:absolute; right:-20px; top:50%; transform:translateY(-50%); font-size:1.5rem; color:#0a2e5f; }
-.workflow-step:last-child::after { content:''; }
-
 .cta { background:#0055a5; color:#fff; text-align:center; padding:60px 10%; }
 .cta a { background:#ffcc00; color:#0a2e5f; padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; }
 .cta a:hover { background:#e6b800; transform:scale(1.05); }
 
 footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
 
-@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } .workflow { flex-direction:column; gap:20px; } .workflow-step::after { display:none; } }
+@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } }
 </style>
 </head>
 <body>
@@ -110,45 +99,18 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
     <div class="service-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/N8N_logo.png" alt="n8n">
       <h3>Automação de Fluxos</h3>
-      <p>Crie fluxos automáticos entre aplicações sem código.</p>
-      <div class="tooltip">Integração rápida entre apps e workflows automáticos.</div>
-      <div class="graph">
-        <div class="bar" data-height="40%" style="height:40%"></div>
-        <div class="bar" data-height="60%" style="height:60%"></div>
-        <div class="bar" data-height="80%" style="height:80%"></div>
-        <div class="bar" data-height="50%" style="height:50%"></div>
-      </div>
+      <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
     </div>
     <div class="service-card">
       <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents">
       <h3>AI Agents Inteligentes</h3>
-      <p>Agentes AI que aprendem com dados e tomam decisões.</p>
-      <div class="tooltip">Decisões automáticas baseadas em dados em tempo real.</div>
-      <div class="graph">
-        <div class="bar" data-height="60%" style="height:60%"></div>
-        <div class="bar" data-height="70%" style="height:70%"></div>
-        <div class="bar" data-height="90%" style="height:90%"></div>
-        <div class="bar" data-height="50%" style="height:50%"></div>
-      </div>
+      <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
     </div>
     <div class="service-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="LLMs" style="width:60px;">
       <h3>Processamento de Linguagem</h3>
-      <p>Entenda dados textuais e gere relatórios automáticos.</p>
-      <div class="tooltip">LLMs analisam e respondem automaticamente a dados textuais.</div>
-      <div class="graph">
-        <div class="bar" data-height="50%" style="height:50%"></div>
-        <div class="bar" data-height="80%" style="height:80%"></div>
-        <div class="bar" data-height="70%" style="height:70%"></div>
-        <div class="bar" data-height="60%" style="height:60%"></div>
-      </div>
+      <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
     </div>
-  </div>
-  <div class="workflow">
-    <div class="workflow-step">Dados</div>
-    <div class="workflow-step">AI Processing</div>
-    <div class="workflow-step">Automação</div>
-    <div class="workflow-step">Resultado</div>
   </div>
 </section>
 
@@ -157,7 +119,7 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
   <div class="slider-container">
     <div class="slider">
       <div class="slide testimonial">
-        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana."
+        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
       </div>
       <div class="slide testimonial">
         "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
@@ -188,36 +150,24 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold:0.2 });
 
-const animatedElements = document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial');
-if(animatedElements.length > 0){
-  animatedElements.forEach(el => observer.observe(el));
-}
+document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => {
+  observer.observe(el);
+});
 
 // Slider
-const sliderContainer = document.querySelector('.slider');
+let index = 0;
 const slides = document.querySelectorAll('.slide');
-if(sliderContainer && slides.length > 0){
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    sliderContainer.style.transform = `translateX(-${index*100}%)`;
-  }, 4000);
-}
-
-// Graph animation
-window.addEventListener('load', () => {
-  document.querySelectorAll('.graph').forEach(graph => {
-    graph.querySelectorAll('.bar').forEach(bar => {
-      const height = bar.getAttribute('data-height') || bar.style.height;
-      bar.style.height = '0%';
-      setTimeout(() => { bar.style.height = height; }, 300);
-    });
-  });
-});
+setInterval(() => {
+  index++;
+  if(index >= slides.length) index = 0;
+  document.querySelector('.slider').style.transform = `translateX(-${index*100}%)`;
+}, 4000);
 </script>
 
 </body>
 </html>
+
+
 
 
 
