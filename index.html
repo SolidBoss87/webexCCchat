@@ -1,243 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoAI Solutions | Automatização Inteligente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #f5f7fa; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoAI Solutions | Automatização Inteligente</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
+body { background:#f5f7fa; color:#1a1a1a; line-height:1.6; scroll-behavior:smooth; }
 
-    header {
-      background: #0a2e5f;
-      color: #fff;
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header h1 { font-weight: 700; font-size: 1.8rem; }
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffcc00; }
+header { background:#0a2e5f; color:#fff; padding:20px 10%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+header h1 { font-weight:700; font-size:1.8rem; }
+nav a { color:#fff; margin-left:20px; text-decoration:none; font-weight:600; transition: color 0.3s; }
+nav a:hover { color:#ffcc00; }
 
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px 10%;
-      background: linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%);
-      color: #fff;
-    }
-    .hero-text { max-width: 600px; animation: slideIn 1s ease-out; }
-    .hero-text h2 { font-size: 2.8rem; margin-bottom: 20px; }
-    .hero-text p { font-size: 1.2rem; margin-bottom: 30px; }
-    .hero-text a {
-      background: #ffcc00;
-      color: #0a2e5f;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .hero-text a:hover { background: #e6b800; }
-    .hero img { max-width: 500px; border-radius: 10px; animation: fadeIn 2s ease-out; }
+.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background:linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%); color:#fff; flex-wrap:wrap; }
+.hero-text { max-width:600px; }
+.hero-text h2 { font-size:2.8rem; margin-bottom:20px; }
+.hero-text p { font-size:1.2rem; margin-bottom:30px; }
+.hero-text a { background:#ffcc00; color:#0a2e5f; padding:15px 30px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s; }
+.hero-text a:hover { background:#e6b800; }
+.hero img { max-width:500px; border-radius:10px; }
 
-    @keyframes slideIn { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.section { padding:60px 10%; }
+.section h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
 
-    .section { padding: 60px 10%; }
-    .section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+.benefits { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.benefit-card { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); flex:1; min-width:250px; transition:transform 0.3s; text-align:center; }
+.benefit-card:hover { transform:translateY(-5px); }
+.benefit-card img { width:60px; margin-bottom:20px; }
+.benefit-card h3 { font-size:1.4rem; margin-bottom:15px; }
+.benefit-card p { color:#555; }
 
-    .benefits {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .benefit-card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      flex: 1;
-      min-width: 250px;
-      transition: transform 0.3s;
-      text-align: center;
-    }
-    .benefit-card:hover { transform: translateY(-5px); }
-    .benefit-card img { width: 60px; margin-bottom: 20px; }
-    .benefit-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
-    .benefit-card p { color: #555; }
+.services { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+.service-card { background:#fff; padding:25px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); text-align:center; transition:transform 0.3s; }
+.service-card:hover { transform:translateY(-5px); }
+.service-card img { width:60px; margin-bottom:15px; }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .service-card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card img { width: 50px; margin-bottom: 15px; }
+.testimonials { display:flex; flex-direction:column; gap:20px; max-width:900px; margin:0 auto; }
+.testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); font-style:italic; text-align:center; position:relative; }
+.testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:#0055a5; }
 
-    .testimonials {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .testimonial {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-      font-style: italic;
-      text-align: center;
-    }
+.cta { background:#0055a5; color:#fff; text-align:center; padding:60px 10%; }
+.cta a { background:#ffcc00; color:#0a2e5f; padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s; }
+.cta a:hover { background:#e6b800; }
 
-    .cta {
-      background: #0055a5;
-      color: #fff;
-      text-align: center;
-      padding: 60px 10%;
-    }
-    .cta a {
-      background: #ffcc00;
-      color: #0a2e5f;
-      padding: 15px 40px;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .cta a:hover { background: #e6b800; }
+footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
 
-    footer {
-      background: #0a2e5f;
-      color: #fff;
-      text-align: center;
-      padding: 30px 10%;
-    }
-
-    @media(max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; gap: 40px; }
-      .benefits { flex-direction: column; align-items: center; }
-    }
-  </style>
+@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } .benefits { flex-direction:column; align-items:center; } }
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>AutoAI Solutions</h1>
-    <nav>
-      <a href="#benefits">Benefícios</a>
-      <a href="#services">Serviços</a>
-      <a href="#testimonials">Depoimentos</a>
-      <a href="#contact">Contato</a>
-    </nav>
-  </header>
+<header>
+  <h1>AutoAI Solutions</h1>
+  <nav>
+    <a href="#benefits">Benefícios</a>
+    <a href="#services">Serviços</a>
+    <a href="#testimonials">Depoimentos</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Automatize o seu negócio com AI e n8n</h2>
-      <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
-      <a href="#contact">Agende uma Demonstração</a>
+<section class="hero">
+  <div class="hero-text">
+    <h2>Automatize o seu negócio com AI e n8n</h2>
+    <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
+    <a href="#contact">Agende uma Demonstração</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80" alt="Automatização AI">
+</section>
+
+<section class="section" id="benefits">
+  <h2>Benefícios de Automatizar</h2>
+  <div class="benefits">
+    <div class="benefit-card">
+      <img src="https://img.icons8.com/fluency/48/000000/time.png" alt="Economia de tempo">
+      <h3>Economia de Tempo</h3>
+      <p>Automatize tarefas repetitivas e concentre-se em decisões estratégicas.</p>
     </div>
-    <img src="https://via.placeholder.com/500x350.png?text=Automatização+AI" alt="Automatização AI">
-  </section>
-
-  <!-- Benefícios -->
-  <section class="section" id="benefits">
-    <h2>Benefícios de Automatizar</h2>
-    <div class="benefits">
-      <div class="benefit-card">
-        <img src="https://via.placeholder.com/60.png?text=⏱️" alt="Economia de tempo">
-        <h3>Economia de Tempo</h3>
-        <p>Automatize tarefas repetitivas e concentre-se em decisões estratégicas.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="https://via.placeholder.com/60.png?text=💰" alt="Redução de custos">
-        <h3>Redução de Custos</h3>
-        <p>Implemente fluxos inteligentes que reduzem erros e otimizam recursos.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="https://via.placeholder.com/60.png?text=🤖" alt="AI Avançada">
-        <h3>AI Avançada</h3>
-        <p>Use AI Agents e LLMs para decisões automáticas e respostas inteligentes.</p>
-      </div>
+    <div class="benefit-card">
+      <img src="https://img.icons8.com/fluency/48/000000/money-bag.png" alt="Redução de custos">
+      <h3>Redução de Custos</h3>
+      <p>Implemente fluxos inteligentes que reduzem erros e otimizam recursos.</p>
     </div>
-  </section>
-
-  <!-- Serviços -->
-  <section class="section" id="services">
-    <h2>Nossas Soluções</h2>
-    <div class="services">
-      <div class="service-card">
-        <img src="https://via.placeholder.com/50.png?text=n8n" alt="n8n">
-        <h3>Automação de Fluxos</h3>
-        <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://via.placeholder.com/50.png?text=AI" alt="AI Agents">
-        <h3>AI Agents Inteligentes</h3>
-        <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://via.placeholder.com/50.png?text=LLM" alt="LLMs">
-        <h3>Processamento de Linguagem</h3>
-        <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
-      </div>
+    <div class="benefit-card">
+      <img src="https://img.icons8.com/fluency/48/000000/artificial-intelligence.png" alt="AI Avançada">
+      <h3>AI Avançada</h3>
+      <p>Use AI Agents e LLMs para decisões automáticas e respostas inteligentes.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Depoimentos -->
-  <section class="section" id="testimonials">
-    <h2>O que os clientes dizem</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
-      </div>
-      <div class="testimonial">
-        "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
-      </div>
-      <div class="testimonial">
-        "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
-      </div>
+<section class="section" id="services">
+  <h2>Nossas Soluções</h2>
+  <div class="services">
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/N8N_logo.png" alt="n8n">
+      <h3>Automação de Fluxos</h3>
+      <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents">
+      <h3>AI Agents Inteligentes</h3>
+      <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="LLMs" style="width:60px;">
+      <h3>Processamento de Linguagem</h3>
+      <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="cta" id="contact">
-    <h2>Pronto para automatizar o seu negócio?</h2>
-    <a href="mailto:contact@autoaisolutions.com">Solicite uma Demonstração</a>
-  </section>
+<section class="section" id="testimonials">
+  <h2>O que os clientes dizem</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
+    </div>
+    <div class="testimonial">
+      "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
+    </div>
+    <div class="testimonial">
+      "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
-  </footer>
+<section class="cta" id="contact">
+  <h2>Pronto para automatizar o seu negócio?</h2>
+  <a href="mailto:contact@autoaisolutions.com">Solicite uma Demonstração</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
+
+
 
 
 
