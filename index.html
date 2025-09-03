@@ -6,7 +6,7 @@
 <title>AutoAI Solutions | Automatização Inteligente</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 body { background:#f5f7fa; color:#1a1a1a; line-height:1.6; scroll-behavior:smooth; }
 
 header { background:#0a2e5f; color:#fff; padding:20px 10%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
@@ -14,40 +14,52 @@ header h1 { font-weight:700; font-size:1.8rem; }
 nav a { color:#fff; margin-left:20px; text-decoration:none; font-weight:600; transition: color 0.3s; }
 nav a:hover { color:#ffcc00; }
 
-.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background:linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%); color:#fff; flex-wrap:wrap; }
-.hero-text { max-width:600px; }
+.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background:linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%); color:#fff; flex-wrap:wrap; overflow:hidden; }
+.hero-text { max-width:600px; transform: translateX(-50px); opacity:0; transition: all 1s ease-out; }
+.hero-text.visible { transform: translateX(0); opacity:1; }
 .hero-text h2 { font-size:2.8rem; margin-bottom:20px; }
 .hero-text p { font-size:1.2rem; margin-bottom:30px; }
-.hero-text a { background:#ffcc00; color:#0a2e5f; padding:15px 30px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s; }
-.hero-text a:hover { background:#e6b800; }
-.hero img { max-width:500px; border-radius:10px; }
+.hero-text a { background:#ffcc00; color:#0a2e5f; padding:15px 30px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; }
+.hero-text a:hover { background:#e6b800; transform:scale(1.05); }
+.hero img { max-width:500px; border-radius:10px; opacity:0; transform: translateY(50px); transition: all 1s ease-out; }
+.hero img.visible { opacity:1; transform: translateY(0); }
 
 .section { padding:60px 10%; }
 .section h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
 
-.benefits { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-.benefit-card { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); flex:1; min-width:250px; transition:transform 0.3s; text-align:center; }
-.benefit-card:hover { transform:translateY(-5px); }
-.benefit-card img { width:60px; margin-bottom:20px; }
-.benefit-card h3 { font-size:1.4rem; margin-bottom:15px; }
-.benefit-card p { color:#555; }
+.benefits, .services, .testimonials { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+.benefit-card, .service-card, .testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px; max-width:300px; text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); position:relative; }
+.benefit-card:hover, .service-card:hover, .testimonial:hover { transform:translateY(-5px); }
 
-.services { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
-.service-card { background:#fff; padding:25px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); text-align:center; transition:transform 0.3s; }
-.service-card:hover { transform:translateY(-5px); }
-.service-card img { width:60px; margin-bottom:15px; }
+.benefit-card img, .service-card img { width:60px; margin-bottom:20px; }
+.benefit-card h3, .service-card h3 { font-size:1.4rem; margin-bottom:15px; }
+.benefit-card p, .service-card p { color:#555; }
 
-.testimonials { display:flex; flex-direction:column; gap:20px; max-width:900px; margin:0 auto; }
-.testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); font-style:italic; text-align:center; position:relative; }
+.tooltip { position:absolute; bottom:110%; left:50%; transform:translateX(-50%); background:#0a2e5f; color:#fff; padding:8px 12px; border-radius:6px; font-size:0.9rem; white-space:nowrap; opacity:0; pointer-events:none; transition: opacity 0.3s; }
+.service-card:hover .tooltip { opacity:1; }
+
+.graph { width:100%; max-width:250px; margin:20px auto 0; height:120px; display:flex; align-items:flex-end; gap:5px; }
+.bar { flex:1; background:#0055a5; border-radius:6px 6px 0 0; transition: height 1s; }
+
+.slider-container { position:relative; width:100%; max-width:900px; overflow:hidden; }
+.slider { display:flex; transition: transform 0.5s ease-in-out; }
+.slide { min-width:100%; box-sizing:border-box; }
+
+.testimonial { font-style:italic; position:relative; }
 .testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:#0055a5; }
 
+.workflow { display:flex; justify-content:space-around; align-items:center; margin-top:40px; }
+.workflow-step { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.05); width:150px; text-align:center; position:relative; }
+.workflow-step::after { content:'→'; position:absolute; right:-20px; top:50%; transform:translateY(-50%); font-size:1.5rem; color:#0a2e5f; }
+.workflow-step:last-child::after { content:''; }
+
 .cta { background:#0055a5; color:#fff; text-align:center; padding:60px 10%; }
-.cta a { background:#ffcc00; color:#0a2e5f; padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s; }
-.cta a:hover { background:#e6b800; }
+.cta a { background:#ffcc00; color:#0a2e5f; padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; }
+.cta a:hover { background:#e6b800; transform:scale(1.05); }
 
 footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
 
-@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } .benefits { flex-direction:column; align-items:center; } }
+@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } .workflow { flex-direction:column; gap:20px; } .workflow-step::after { display:none; } }
 </style>
 </head>
 <body>
@@ -98,32 +110,61 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
     <div class="service-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/N8N_logo.png" alt="n8n">
       <h3>Automação de Fluxos</h3>
-      <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
+      <p>Crie fluxos automáticos entre aplicações sem código.</p>
+      <div class="tooltip">Integração rápida entre apps e workflows automáticos.</div>
+      <div class="graph">
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:50%"></div>
+      </div>
     </div>
     <div class="service-card">
       <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents">
       <h3>AI Agents Inteligentes</h3>
-      <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
+      <p>Agentes AI que aprendem com dados e tomam decisões.</p>
+      <div class="tooltip">Decisões automáticas baseadas em dados em tempo real.</div>
+      <div class="graph">
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:90%"></div>
+        <div class="bar" style="height:50%"></div>
+      </div>
     </div>
     <div class="service-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="LLMs" style="width:60px;">
       <h3>Processamento de Linguagem</h3>
-      <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
+      <p>Entenda dados textuais e gere relatórios automáticos.</p>
+      <div class="tooltip">LLMs analisam e respondem automaticamente a dados textuais.</div>
+      <div class="graph">
+        <div class="bar" style="height:50%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:60%"></div>
+      </div>
     </div>
+  </div>
+  <div class="workflow">
+    <div class="workflow-step">Dados</div>
+    <div class="workflow-step">AI Processing</div>
+    <div class="workflow-step">Automação</div>
+    <div class="workflow-step">Resultado</div>
   </div>
 </section>
 
 <section class="section" id="testimonials">
   <h2>O que os clientes dizem</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
-    </div>
-    <div class="testimonial">
-      "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
-    </div>
-    <div class="testimonial">
-      "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide testimonial">
+        "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana."
+      </div>
+      <div class="slide testimonial">
+        "Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."
+      </div>
+      <div class="slide testimonial">
+        "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
+      </div>
     </div>
   </div>
 </section>
@@ -137,8 +178,40 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
   <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
 </footer>
 
+<script>
+// Scroll animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold:0.2 });
+document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
+
+// Slider
+let index = 0;
+const slides = document.querySelectorAll('.slide');
+setInterval(() => {
+  index++;
+  if(index >= slides.length) index = 0;
+  document.querySelector('.slider').style.transform = `translateX(-${index*100}%)`;
+}, 4000);
+
+// Graph animation
+document.querySelectorAll('.graph').forEach(graph => {
+  graph.querySelectorAll('.bar').forEach(bar => {
+    let height = bar.style.height;
+    bar.style.height = '0%';
+    setTimeout(() => { bar.style.height = height; }, 300);
+  });
+});
+</script>
+
 </body>
 </html>
+
+
 
 
 
