@@ -113,10 +113,10 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
       <p>Crie fluxos automáticos entre aplicações sem código.</p>
       <div class="tooltip">Integração rápida entre apps e workflows automáticos.</div>
       <div class="graph">
-        <div class="bar" style="height:40%"></div>
-        <div class="bar" style="height:60%"></div>
-        <div class="bar" style="height:80%"></div>
-        <div class="bar" style="height:50%"></div>
+        <div class="bar" data-height="40%" style="height:40%"></div>
+        <div class="bar" data-height="60%" style="height:60%"></div>
+        <div class="bar" data-height="80%" style="height:80%"></div>
+        <div class="bar" data-height="50%" style="height:50%"></div>
       </div>
     </div>
     <div class="service-card">
@@ -125,10 +125,10 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
       <p>Agentes AI que aprendem com dados e tomam decisões.</p>
       <div class="tooltip">Decisões automáticas baseadas em dados em tempo real.</div>
       <div class="graph">
-        <div class="bar" style="height:60%"></div>
-        <div class="bar" style="height:70%"></div>
-        <div class="bar" style="height:90%"></div>
-        <div class="bar" style="height:50%"></div>
+        <div class="bar" data-height="60%" style="height:60%"></div>
+        <div class="bar" data-height="70%" style="height:70%"></div>
+        <div class="bar" data-height="90%" style="height:90%"></div>
+        <div class="bar" data-height="50%" style="height:50%"></div>
       </div>
     </div>
     <div class="service-card">
@@ -137,10 +137,10 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
       <p>Entenda dados textuais e gere relatórios automáticos.</p>
       <div class="tooltip">LLMs analisam e respondem automaticamente a dados textuais.</div>
       <div class="graph">
-        <div class="bar" style="height:50%"></div>
-        <div class="bar" style="height:80%"></div>
-        <div class="bar" style="height:70%"></div>
-        <div class="bar" style="height:60%"></div>
+        <div class="bar" data-height="50%" style="height:50%"></div>
+        <div class="bar" data-height="80%" style="height:80%"></div>
+        <div class="bar" data-height="70%" style="height:70%"></div>
+        <div class="bar" data-height="60%" style="height:60%"></div>
       </div>
     </div>
   </div>
@@ -187,29 +187,38 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold:0.2 });
-document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
+
+const animatedElements = document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial');
+if(animatedElements.length > 0){
+  animatedElements.forEach(el => observer.observe(el));
+}
 
 // Slider
-let index = 0;
+const sliderContainer = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
-setInterval(() => {
-  index++;
-  if(index >= slides.length) index = 0;
-  document.querySelector('.slider').style.transform = `translateX(-${index*100}%)`;
-}, 4000);
+if(sliderContainer && slides.length > 0){
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    sliderContainer.style.transform = `translateX(-${index*100}%)`;
+  }, 4000);
+}
 
 // Graph animation
-document.querySelectorAll('.graph').forEach(graph => {
-  graph.querySelectorAll('.bar').forEach(bar => {
-    let height = bar.style.height;
-    bar.style.height = '0%';
-    setTimeout(() => { bar.style.height = height; }, 300);
+window.addEventListener('load', () => {
+  document.querySelectorAll('.graph').forEach(graph => {
+    graph.querySelectorAll('.bar').forEach(bar => {
+      const height = bar.getAttribute('data-height') || bar.style.height;
+      bar.style.height = '0%';
+      setTimeout(() => { bar.style.height = height; }, 300);
+    });
   });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
