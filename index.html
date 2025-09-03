@@ -10,69 +10,124 @@
 
 <style>
 :root {
-    --primary-color: #0a2e5f;
-    --secondary-color: #0055a5;
-    --accent-color: #ffcc00;
-    --text-color: #1a1a1a;
-    --bg-color: #f5f7fa;
-    --card-bg: #fff;
-    --card-shadow: rgba(0,0,0,0.08);
-    --padding-section: 60px;
-    --radius: 10px;
+  --primary-color: #0a2e5f;
+  --secondary-color: #0055a5;
+  --accent-color: #ffcc00;
+  --text-color: #1a1a1a;
+  --bg-color: #f5f7fa;
+  --card-bg: #fff;
+  --card-shadow: rgba(0,0,0,0.08);
+  --padding-section: 60px;
+  --radius: 10px;
+  --cta-pulse: 1.05;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 body { background: var(--bg-color); color: var(--text-color); line-height:1.6; scroll-behavior:smooth; }
 
+/* Header */
 header {
-    background: var(--primary-color);
-    color:#fff;
-    padding: 20px 10%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:100;
+  background: var(--primary-color);
+  color:#fff;
+  padding: 20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-
 header h1 { font-weight:700; font-size:1.8rem; }
-
 nav { display:flex; align-items:center; gap:20px; }
 nav a { color:#fff; text-decoration:none; font-weight:600; transition: color 0.3s; }
 nav a:hover { color: var(--accent-color); }
 
 /* Hamburger menu */
-.menu-toggle {
-    display:none;
-    flex-direction: column;
-    cursor: pointer;
-}
-.menu-toggle span {
-    height: 3px;
-    width: 25px;
-    background: #fff;
-    margin: 4px 0;
-    transition: 0.3s;
-}
+.menu-toggle { display:none; flex-direction: column; cursor: pointer; }
+.menu-toggle span { height: 3px; width: 25px; background: #fff; margin: 4px 0; transition: 0.3s; }
 
-/* Hero */
-.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%); color:#fff; flex-wrap:wrap; overflow:hidden; }
+/* Hero Section */
+.hero {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px 10%;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color:#fff;
+  flex-wrap:wrap;
+  overflow:hidden;
+  position:relative;
+}
 .hero-text { max-width:600px; transform: translateX(-50px); opacity:0; transition: all 1s ease-out; }
 .hero-text.visible { transform: translateX(0); opacity:1; }
 .hero-text h2 { font-size:2.8rem; margin-bottom:20px; }
 .hero-text p { font-size:1.2rem; margin-bottom:30px; }
-.hero-text a { background: var(--accent-color); color: var(--primary-color); padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; display:inline-block; margin-top:30px; }
-.hero-text a:hover { background:#e6b800; transform:scale(1.05); }
-.hero img { max-width:500px; border-radius: var(--radius); opacity:0; transform: translateY(50px); transition: all 1s ease-out; }
+.hero-text a {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  padding:15px 40px;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:6px;
+  display:inline-block;
+  margin-top:30px;
+  transition: transform 0.6s ease, background 0.3s;
+  animation: pulse 2s infinite alternate;
+}
+.hero-text a:hover { transform: scale(var(--cta-pulse)); background:#e6b800; }
+@keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(var(--cta-pulse)); } }
+
+.hero img {
+  max-width:500px;
+  border-radius: var(--radius);
+  opacity:0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+/* Scroll Cue */
+.scroll-cue {
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:30px;
+  height:50px;
+  border:2px solid #fff;
+  border-radius:25px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:5px;
+}
+.scroll-cue span {
+  display:block;
+  width:6px;
+  height:6px;
+  background:#fff;
+  border-radius:50%;
+  animation: scroll 1.5s infinite;
+}
+@keyframes scroll {
+  0% { transform: translateY(0); opacity:1; }
+  50% { transform: translateY(20px); opacity:0.5; }
+  100% { transform: translateY(0); opacity:1; }
+}
 
 /* Sections */
 .section { padding: var(--padding-section) 10%; }
 .section h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
-
-/* Grid for benefits/services/testimonials */
 .benefits, .services, .testimonials { display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); justify-items:center; }
-.benefit-card, .service-card, .testimonial { background: var(--card-bg); padding:30px; border-radius: var(--radius); box-shadow:0 8px 20px var(--card-shadow); text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); }
+.benefit-card, .service-card, .testimonial {
+  background: var(--card-bg);
+  padding:30px;
+  border-radius: var(--radius);
+  box-shadow:0 8px 20px var(--card-shadow);
+  text-align:center;
+  transition:transform 0.3s;
+  opacity:0;
+  transform: translateY(50px);
+}
 .benefit-card:hover, .service-card:hover, .testimonial:hover { transform:translateY(-5px); }
 .benefit-card.visible, .service-card.visible, .testimonial.visible { opacity:1; transform: translateY(0); }
 .benefit-card img, .service-card img { width:60px; margin-bottom:20px; }
@@ -85,16 +140,14 @@ nav a:hover { color: var(--accent-color); }
 .slide { min-width:100%; box-sizing:border-box; }
 .testimonial { font-style:italic; position:relative; }
 .testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color: var(--secondary-color); }
-
-/* Slider controls */
 .slider-controls { text-align:center; margin-top:20px; }
 .slider-controls button { background: var(--accent-color); border:none; padding:8px 12px; margin:0 5px; border-radius:5px; cursor:pointer; transition: 0.3s; }
 .slider-controls button:hover { background:#e6b800; }
 
 /* CTA */
 .cta { background: var(--secondary-color); color:#fff; text-align:center; padding:80px 10%; }
-.cta a { background: var(--accent-color); color: var(--primary-color); padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; display:inline-block; margin-top:30px; }
-.cta a:hover { background:#e6b800; transform:scale(1.05); }
+.cta a { background: var(--accent-color); color: var(--primary-color); padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; display:inline-block; margin-top:30px; transition: transform 0.6s ease, background 0.3s; animation: pulse 2s infinite alternate; }
+.cta a:hover { transform: scale(var(--cta-pulse)); background:#e6b800; }
 
 /* Footer */
 footer { background: var(--primary-color); color:#fff; text-align:center; padding:40px 10%; }
@@ -103,10 +156,10 @@ footer .social a { color:#fff; font-size:1.2rem; transition:color 0.3s; }
 footer .social a:hover { color: var(--accent-color); }
 
 @media(max-width:900px){
-    .hero { flex-direction:column; text-align:center; gap:40px; }
-    nav { display:none; flex-direction:column; background: var(--primary-color); position:absolute; top:70px; right:10%; padding:20px; border-radius:6px; }
-    nav.show { display:flex; }
-    .menu-toggle { display:flex; }
+  .hero { flex-direction:column; text-align:center; gap:40px; }
+  nav { display:none; flex-direction:column; background: var(--primary-color); position:absolute; top:70px; right:10%; padding:20px; border-radius:6px; }
+  nav.show { display:flex; }
+  .menu-toggle { display:flex; }
 }
 </style>
 </head>
@@ -135,6 +188,7 @@ footer .social a:hover { color: var(--accent-color); }
     <a href="#contact">Agende uma Demonstração</a>
   </div>
   <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80" alt="Automatização AI" loading="lazy">
+  <div class="scroll-cue"><span></span></div>
 </section>
 
 <section class="section" id="benefits">
@@ -219,51 +273,27 @@ footer .social a:hover { color: var(--accent-color); }
 // Hamburger menu
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('show');
-});
+menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
 
 // Scroll animation
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
 }, { threshold:0.2 });
 
-document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
 
 // Slider
 let index = 0;
 const slides = document.querySelectorAll('.slide');
 const slider = document.getElementById('slider');
 let slideInterval = setInterval(nextSlide, 4000);
-
-function nextSlide() {
-  index++;
-  if(index >= slides.length) index = 0;
-  slider.style.transform = `translateX(-${index*100}%)`;
-}
-function prevSlide() {
-  index--;
-  if(index < 0) index = slides.length - 1;
-  slider.style.transform = `translateX(-${index*100}%)`;
-}
-
+function nextSlide() { index = (index+1) % slides.length; slider.style.transform = `translateX(-${index*100}%)`; }
+function prevSlide() { index = (index-1 + slides.length) % slides.length; slider.style.transform = `translateX(-${index*100}%)`; }
 document.getElementById('next').addEventListener('click', () => { nextSlide(); resetInterval(); });
 document.getElementById('prev').addEventListener('click', () => { prevSlide(); resetInterval(); });
-
-// Pause slider on hover
 slider.parentElement.addEventListener('mouseenter', () => clearInterval(slideInterval));
 slider.parentElement.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 4000));
-
-function resetInterval() {
-  clearInterval(slideInterval);
-  slideInterval = setInterval(nextSlide, 4000);
-}
+function resetInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 4000); }
 </script>
 
 </body>
