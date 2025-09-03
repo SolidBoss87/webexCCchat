@@ -4,58 +4,123 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AutoAI Solutions | Automatização Inteligente</title>
+<meta name="description" content="Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.">
+<meta name="keywords" content="Automação, AI, n8n, LLMs, Inteligência Artificial, Eficiência, Produtividade">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+:root {
+    --primary-color: #0a2e5f;
+    --secondary-color: #0055a5;
+    --accent-color: #ffcc00;
+    --text-color: #1a1a1a;
+    --bg-color: #f5f7fa;
+    --card-bg: #fff;
+    --card-shadow: rgba(0,0,0,0.08);
+    --padding-section: 60px;
+    --radius: 10px;
+}
+
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-body { background:#f5f7fa; color:#1a1a1a; line-height:1.6; scroll-behavior:smooth; }
+body { background: var(--bg-color); color: var(--text-color); line-height:1.6; scroll-behavior:smooth; }
 
-header { background:#0a2e5f; color:#fff; padding:20px 10%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+header {
+    background: var(--primary-color);
+    color:#fff;
+    padding: 20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
 header h1 { font-weight:700; font-size:1.8rem; }
-nav a { color:#fff; margin-left:20px; text-decoration:none; font-weight:600; transition: color 0.3s; }
-nav a:hover { color:#ffcc00; }
 
-.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background:linear-gradient(90deg, #0a2e5f 0%, #0055a5 100%); color:#fff; flex-wrap:wrap; overflow:hidden; }
+nav { display:flex; align-items:center; gap:20px; }
+nav a { color:#fff; text-decoration:none; font-weight:600; transition: color 0.3s; }
+nav a:hover { color: var(--accent-color); }
+
+/* Hamburger menu */
+.menu-toggle {
+    display:none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* Hero */
+.hero { display:flex; align-items:center; justify-content:space-between; padding:80px 10%; background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%); color:#fff; flex-wrap:wrap; overflow:hidden; }
 .hero-text { max-width:600px; transform: translateX(-50px); opacity:0; transition: all 1s ease-out; }
 .hero-text.visible { transform: translateX(0); opacity:1; }
 .hero-text h2 { font-size:2.8rem; margin-bottom:20px; }
 .hero-text p { font-size:1.2rem; margin-bottom:30px; }
-.hero-text a { background:#ffcc00; color:#0a2e5f; padding:15px 30px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; }
+.hero-text a { background: var(--accent-color); color: var(--primary-color); padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; display:inline-block; margin-top:30px; }
 .hero-text a:hover { background:#e6b800; transform:scale(1.05); }
-.hero img { max-width:500px; border-radius:10px; opacity:0; transform: translateY(50px); transition: all 1s ease-out; }
-.hero img.visible { opacity:1; transform: translateY(0); }
+.hero img { max-width:500px; border-radius: var(--radius); opacity:0; transform: translateY(50px); transition: all 1s ease-out; }
 
-.section { padding:60px 10%; }
+/* Sections */
+.section { padding: var(--padding-section) 10%; }
 .section h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
 
-.benefits, .services, .testimonials { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-.benefit-card, .service-card, .testimonial { background:#fff; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px; max-width:300px; text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); }
+/* Grid for benefits/services/testimonials */
+.benefits, .services, .testimonials { display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); justify-items:center; }
+.benefit-card, .service-card, .testimonial { background: var(--card-bg); padding:30px; border-radius: var(--radius); box-shadow:0 8px 20px var(--card-shadow); text-align:center; transition:transform 0.3s; opacity:0; transform: translateY(50px); }
 .benefit-card:hover, .service-card:hover, .testimonial:hover { transform:translateY(-5px); }
 .benefit-card.visible, .service-card.visible, .testimonial.visible { opacity:1; transform: translateY(0); }
 .benefit-card img, .service-card img { width:60px; margin-bottom:20px; }
 .benefit-card h3, .service-card h3 { font-size:1.4rem; margin-bottom:15px; }
 .benefit-card p, .service-card p { color:#555; }
 
+/* Slider */
 .slider-container { position:relative; width:100%; max-width:900px; overflow:hidden; }
 .slider { display:flex; transition: transform 0.5s ease-in-out; }
 .slide { min-width:100%; box-sizing:border-box; }
-
 .testimonial { font-style:italic; position:relative; }
-.testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:#0055a5; }
+.testimonial::before { content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color: var(--secondary-color); }
 
-.cta { background:#0055a5; color:#fff; text-align:center; padding:60px 10%; }
-.cta a { background:#ffcc00; color:#0a2e5f; padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; }
+/* Slider controls */
+.slider-controls { text-align:center; margin-top:20px; }
+.slider-controls button { background: var(--accent-color); border:none; padding:8px 12px; margin:0 5px; border-radius:5px; cursor:pointer; transition: 0.3s; }
+.slider-controls button:hover { background:#e6b800; }
+
+/* CTA */
+.cta { background: var(--secondary-color); color:#fff; text-align:center; padding:80px 10%; }
+.cta a { background: var(--accent-color); color: var(--primary-color); padding:15px 40px; text-decoration:none; font-weight:600; border-radius:6px; transition: background 0.3s, transform 0.3s; display:inline-block; margin-top:30px; }
 .cta a:hover { background:#e6b800; transform:scale(1.05); }
 
-footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
+/* Footer */
+footer { background: var(--primary-color); color:#fff; text-align:center; padding:40px 10%; }
+footer .social { margin-top:10px; display:flex; justify-content:center; gap:15px; }
+footer .social a { color:#fff; font-size:1.2rem; transition:color 0.3s; }
+footer .social a:hover { color: var(--accent-color); }
 
-@media(max-width:900px){ .hero { flex-direction:column; text-align:center; gap:40px; } }
+@media(max-width:900px){
+    .hero { flex-direction:column; text-align:center; gap:40px; }
+    nav { display:none; flex-direction:column; background: var(--primary-color); position:absolute; top:70px; right:10%; padding:20px; border-radius:6px; }
+    nav.show { display:flex; }
+    .menu-toggle { display:flex; }
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <h1>AutoAI Solutions</h1>
-  <nav>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav">
     <a href="#benefits">Benefícios</a>
     <a href="#services">Serviços</a>
     <a href="#testimonials">Depoimentos</a>
@@ -69,7 +134,7 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
     <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
     <a href="#contact">Agende uma Demonstração</a>
   </div>
-  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80" alt="Automatização AI">
+  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80" alt="Automatização AI" loading="lazy">
 </section>
 
 <section class="section" id="benefits">
@@ -97,17 +162,17 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
   <h2>Nossas Soluções</h2>
   <div class="services">
     <div class="service-card">
-      <img src="https://browserflow.io/images/N8N-badge.png" alt="n8n">
+      <img src="https://browserflow.io/images/N8N-badge.png" alt="n8n" loading="lazy">
       <h3>Automação de Fluxos</h3>
       <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
     </div>
     <div class="service-card">
-      <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents">
+      <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents" loading="lazy">
       <h3>AI Agents Inteligentes</h3>
       <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
     </div>
     <div class="service-card">
-      <img src="https://t4.ftcdn.net/jpg/07/56/11/69/360_F_756116963_MKdL7O7BKH1ZHicpGXHd9ys9xDMhkGr2.jpg" alt="LLMs" style="width:60px;">
+      <img src="https://t4.ftcdn.net/jpg/07/56/11/69/360_F_756116963_MKdL7O7BKH1ZHicpGXHd9ys9xDMhkGr2.jpg" alt="LLMs" style="width:60px;" loading="lazy">
       <h3>Processamento de Linguagem</h3>
       <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
     </div>
@@ -117,7 +182,7 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
 <section class="section" id="testimonials">
   <h2>O que os clientes dizem</h2>
   <div class="slider-container">
-    <div class="slider">
+    <div class="slider" id="slider">
       <div class="slide testimonial">
         "Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."
       </div>
@@ -127,6 +192,10 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
       <div class="slide testimonial">
         "A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"
       </div>
+    </div>
+    <div class="slider-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
     </div>
   </div>
 </section>
@@ -138,9 +207,22 @@ footer { background:#0a2e5f; color:#fff; text-align:center; padding:30px 10%; }
 
 <footer>
   <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
+  <div class="social">
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp"></a>
+  </div>
 </footer>
 
 <script>
+// Hamburger menu
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+});
+
 // Scroll animation
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -157,46 +239,32 @@ document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, 
 // Slider
 let index = 0;
 const slides = document.querySelectorAll('.slide');
-setInterval(() => {
+const slider = document.getElementById('slider');
+let slideInterval = setInterval(nextSlide, 4000);
+
+function nextSlide() {
   index++;
   if(index >= slides.length) index = 0;
-  document.querySelector('.slider').style.transform = `translateX(-${index*100}%)`;
-}, 4000);
+  slider.style.transform = `translateX(-${index*100}%)`;
+}
+function prevSlide() {
+  index--;
+  if(index < 0) index = slides.length - 1;
+  slider.style.transform = `translateX(-${index*100}%)`;
+}
+
+document.getElementById('next').addEventListener('click', () => { nextSlide(); resetInterval(); });
+document.getElementById('prev').addEventListener('click', () => { prevSlide(); resetInterval(); });
+
+// Pause slider on hover
+slider.parentElement.addEventListener('mouseenter', () => clearInterval(slideInterval));
+slider.parentElement.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 4000));
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, 4000);
+}
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
