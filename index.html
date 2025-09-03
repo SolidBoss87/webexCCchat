@@ -63,35 +63,28 @@
     .card h3 {
       margin-top: 0;
     }
-
     .gallery {
       padding: 40px;
       text-align: center;
       background-color: #fff;
     }
-
     .gallery img {
       width: 250px;
       margin: 10px;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
-
     form {
       background-color: white;
       padding: 40px;
-      margin: 40px;
+      margin: 40px auto;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
-
     form h3 {
       margin-top: 0;
     }
-
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -100,7 +93,6 @@
       border-radius: 6px;
       font-size: 16px;
     }
-
     button {
       background-color: #005999;
       color: white;
@@ -110,11 +102,13 @@
       cursor: pointer;
       font-size: 16px;
     }
-
     button:hover {
       background-color: #004477;
     }
-
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
     footer {
       background-color: #003366;
       color: white;
@@ -122,57 +116,44 @@
       padding: 20px;
       margin-top: 40px;
     }
-
     .social-links a {
       margin: 0 10px;
       color: white;
       text-decoration: none;
       font-size: 18px;
     }
-
     .social-links a:hover {
       text-decoration: underline;
     }
     .carousel {
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.carousel img {
-  width: 100%;
-  max-height: 400px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-.carousel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 89, 153, 0.8);
-  color: white;
-  border: none;
-  padding: 12px 16px;
-  font-size: 24px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-
-.carousel .prev {
-  left: 10px;
-}
-
-.carousel .next {
-  right: 10px;
-}
-
-.carousel button:hover {
-  background-color: rgba(0, 68, 119, 0.9);
-}
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .carousel img {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 89, 153, 0.8);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .carousel .prev { left: 10px; }
+    .carousel .next { right: 10px; }
+    .carousel button:hover { background-color: rgba(0, 68, 119, 0.9); }
   </style>
 </head>
 <body>
@@ -209,56 +190,15 @@
   </section>
 
   <section class="gallery">
-  <h2>Galeria de Fotos</h2>
-  <div class="carousel">
-    <button class="prev" onclick="prevSlide()">❮</button>
-    <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" 
-         alt="Jogador de airsoft em ação - Soldier of Fortune">
-    <button class="next" onclick="nextSlide()">❯</button>
-  </div>
-</section>
+    <h2>Galeria de Fotos</h2>
+    <div class="carousel">
+      <button class="prev" onclick="prevSlide()">❮</button>
+      <img id="carousel-image" src="https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=" alt="Jogador de airsoft em ação - Soldier of Fortune">
+      <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+  </section>
 
-<script>
-  const images = [
-    {
-      src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=",
-      alt: "Jogador de airsoft em ação - Soldier of Fortune"
-    },
-    {
-      src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=",
-      alt: "Soldados de airsoft em missão tática na selva"
-    },
-    {
-      src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=",
-      alt: "Equipa SWAT durante uma operação de airsoft urbano"
-    }
-  ];
-
-  let current = 0;
-  const imgEl = document.getElementById("carousel-image");
-
-  function showSlide(index) {
-    current = (index + images.length) % images.length;
-    imgEl.src = images[current].src;
-    imgEl.alt = images[current].alt;
-  }
-
-  function nextSlide() {
-    showSlide(current + 1);
-  }
-
-  function prevSlide() {
-    showSlide(current - 1);
-  }
-
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowRight") nextSlide();
-    if (e.key === "ArrowLeft") prevSlide();
-  });
-</script>
-
-
-  <form>
+  <form id="contactForm">
     <h3>Inscrição / Contacto</h3>
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required />
@@ -270,6 +210,7 @@
     <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
 
     <button type="submit">Enviar</button>
+    <div class="message" id="formMessage"></div>
   </form>
 
   <footer>
@@ -280,6 +221,64 @@
       <a href="https://www.facebook.com/solidbossairsoft" target="_blank">Facebook</a>
     </div>
   </footer>
-  <div id="divicw" data-bind="399C40A4-623A-4AF3-9800-F83665CD4F88" data-org=""></div><script>var i={t:function(t){var e="https://media.imi.chat/widget/js/imichatinit.js";try{var o=new XMLHttpRequest;o.onreadystatechange=function(){if(this.readyState==4){var t=document.getElementById("divicw");if(this.status==0){i.o(t);return}var e=document.createElement("script");e.innerHTML=this.responseText;t.parentNode.insertBefore(e,t.nextSibling)}};o.open("GET",e,true);o.send()}catch(s){console.error(s)}},o:function(t){t.insertAdjacentHTML("afterend",'<iframe id="tls_al_frm" frameborder="0" style="overflow: hidden;height: 208px;width: 394px;position: fixed;display: block;right: 48px;bottom: 12px;z-index: 99999; display:none;"></iframe>');var e=document.getElementById("tls_al_frm");var o=e.contentWindow||(e.contentDocument.document||e.contentDocument);o.document.open();o.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Untitled Document</title><style>body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;color: #99a0b0;font-size: 14px;}.popover__content{background-color: #fbfbfe; padding: 1.5rem; border-radius: 5px; width: 300px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);position: relative;}.popover__message{font-weight: 600;color:#56627c;font-size: 16px;}.pull-left{float:left;}.clearfix{clear: both;}.hdr-txt{width: 218px; margin-top: 3px;}.para-txt a{text-decoration: none;color: #005cde;}.close-btn{position: absolute;right:15px;top:15px;}.close-btn a{text-decoration: none;font-weight: 400; color: #56627c; font-size: 16px;}</style></head><body><div class="popover__content"><div class="close-btn"><a href="#" onclick="closeTLSAlert();">X</a></div><div class="popover__message"><div class="pull-left hdr-txt">This browser version is not supported on LiveChat.</div></div><div class="clearfix"></div><p class="para-txt">Please update your browser to the latest version and re-open the website to access the widget. </p></div><script>function closeTLSAlert(){window.parent.postMessage({key: "close_tls_alert",value: "close_tls_alert",action: "close_tls_alert"}, "*");}<\/script></body></html>');o.document.close();e.style.display="block";window.addEventListener("message",function(t){if(t.data.action=="close_tls_alert"){i.s()}})},s:function(){var t=document.getElementById("tls_al_frm");t.remove()}};i.t(function(t){});</script>
+
+  <!-- Widget iMiChat mantido -->
+  <div id="divicw" data-bind="399C40A4-623A-4AF3-9800-F83665CD4F88" data-org=""></div>
+  <script>
+  var i={t:function(t){var e="https://media.imi.chat/widget/js/imichatinit.js";try{var o=new XMLHttpRequest;o.onreadystatechange=function(){if(this.readyState==4){var t=document.getElementById("divicw");if(this.status==0){i.o(t);return}var e=document.createElement("script");e.innerHTML=this.responseText;t.parentNode.insertBefore(e,t.nextSibling)}};o.open("GET",e,true);o.send()}catch(s){console.error(s)}},o:function(t){t.insertAdjacentHTML("afterend",'<iframe id="tls_al_frm" frameborder="0" style="overflow: hidden;height: 208px;width: 394px;position: fixed;display: block;right: 48px;bottom: 12px;z-index: 99999; display:none;"></iframe>');var e=document.getElementById("tls_al_frm");var o=e.contentWindow||(e.contentDocument.document||e.contentDocument);o.document.open();o.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Untitled Document</title><style>body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;color: #99a0b0;font-size: 14px;}.popover__content{background-color: #fbfbfe; padding: 1.5rem; border-radius: 5px; width: 300px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);position: relative;}.popover__message{font-weight: 600;color:#56627c;font-size: 16px;}.pull-left{float:left;}.clearfix{clear: both;}.hdr-txt{width: 218px; margin-top: 3px;}.para-txt a{text-decoration: none;color: #005cde;}.close-btn{position: absolute;right:15px;top:15px;}.close-btn a{text-decoration: none;font-weight: 400; color: #56627c; font-size: 16px;}</style></head><body><div class="popover__content"><div class="close-btn"><a href="#" onclick="closeTLSAlert();">X</a></div><div class="popover__message"><div class="pull-left hdr-txt">This browser version is not supported on LiveChat.</div></div><div class="clearfix"></div><p class="para-txt">Please update your browser to the latest version and re-open the website to access the widget. </p></div><script>function closeTLSAlert(){window.parent.postMessage({key: "close_tls_alert",value: "close_tls_alert",action: "close_tls_alert"}, "*");}<\/script></body></html>');o.document.close();e.style.display="block";window.addEventListener("message",function(t){if(t.data.action=="close_tls_alert"){i.s()}})},s:function(){var t=document.getElementById("tls_al_frm");t.remove()}};i.t(function(t){});
+  </script>
+
+  <script>
+    // Carrossel
+    const images = [
+      { src: "https://media.gettyimages.com/id/1065897648/pt/foto/soldier-of-fortune.jpg?s=2048x2048&w=gi&k=20&c=mInogLeM-L6QIzNv7RQGxDZwvB_LfIcgkZibuUVx8oc=", alt: "Jogador de airsoft em ação - Soldier of Fortune" },
+      { src: "https://media.gettyimages.com/id/1131791542/pt/foto/tactical-military-airsoft-soldiers-in-jungle.jpg?s=2048x2048&w=gi&k=20&c=mPhbDIAvG-KK0_jWg69udUD-WfKzXOWtcjc6se8SW0U=", alt: "Soldados de airsoft em missão tática na selva" },
+      { src: "https://media.gettyimages.com/id/1372131321/pt/foto/military-swat-team-members-during-operation.jpg?s=2048x2048&w=gi&k=20&c=bO9-RoZWYpJpcZW3QtTsyMhVqhIocex_JjC_tUExEOE=", alt: "Equipa SWAT durante uma operação de airsoft urbano" }
+    ];
+    let current = 0;
+    const imgEl = document.getElementById("carousel-image");
+    function showSlide(index) {
+      current = (index + images.length) % images.length;
+      imgEl.src = images[current].src;
+      imgEl.alt = images[current].alt;
+    }
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    // Formulário para n8n
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = {
+        nome: form.nome.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value
+      };
+      fetch("https://exciting-sawfish-actively.ngrok-free.app/webhook-test/receber-wxcc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          formMessage.style.color = "green";
+          formMessage.textContent = "Mensagem enviada com sucesso!";
+          form.reset();
+        } else {
+          throw new Error("Erro ao enviar mensagem.");
+        }
+      })
+      .catch(err => {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Erro ao enviar mensagem.";
+        console.error(err);
+      });
+    });
+  </script>
 </body>
 </html>
