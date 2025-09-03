@@ -152,8 +152,15 @@
       border-radius: 50%;
       z-index: 10;
     }
-    .carousel .prev { left: -50px }
-    .carousel .next { right: -50px; }
+.carousel .prev {
+  left: 0;
+  transform: translate(-150%, -50%); /* empurra mais para a esquerda */
+}
+
+.carousel .next {
+  right: 0;
+  transform: translate(150%, -50%); /* empurra mais para a direita */
+}
     .carousel button:hover { background-color: rgba(0, 68, 119, 0.9); }
   </style>
 </head>
@@ -285,6 +292,7 @@
   </script>
 </body>
 </html>
+
 
 
 
