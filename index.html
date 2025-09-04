@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.min.css">
 </head>
-
 <body>
 
 <header>
@@ -119,17 +118,15 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.2 });
-
 document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
 
-// Slider automático funcional
+// Slider funcional com fade
 let index = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(i){
-  slides.forEach((slide, idx) => {
-    slide.classList.toggle('active', idx === i);
-  });
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[i].classList.add('active');
 }
 
 showSlide(index);
@@ -142,5 +139,3 @@ setInterval(() => {
 
 </body>
 </html>
-
-
