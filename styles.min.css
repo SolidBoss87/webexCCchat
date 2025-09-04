@@ -25,6 +25,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Header */
 header {
   background: var(--primary);
   color: #fff;
@@ -68,6 +69,7 @@ nav a:hover {
   transition: .3s;
 }
 
+/* Hero */
 .hero {
   display: flex;
   align-items: center;
@@ -153,11 +155,12 @@ nav a:hover {
 }
 
 @keyframes scroll {
-  0% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(20px); opacity: .5; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(0); opacity: 1 }
+  50% { transform: translateY(20px); opacity: .5 }
+  100% { transform: translateY(0); opacity: 1 }
 }
 
+/* Sections */
 .section {
   padding: var(--padding) 10%;
 }
@@ -168,18 +171,14 @@ nav a:hover {
   margin-bottom: 15px;
 }
 
-.benefits,
-.services,
-.testimonials {
+.benefits, .services, .testimonials {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   justify-items: center;
 }
 
-.benefit-card,
-.service-card,
-.testimonial {
+.benefit-card, .service-card, .testimonial {
   background: var(--card);
   padding: 25px;
   border-radius: var(--radius);
@@ -190,45 +189,38 @@ nav a:hover {
   transform: translateY(50px);
 }
 
-.benefit-card:hover,
-.service-card:hover,
-.testimonial:hover {
+.benefit-card:hover, .service-card:hover, .testimonial:hover {
   transform: translateY(-5px);
 }
 
-.benefit-card.visible,
-.service-card.visible,
-.testimonial.visible {
+.benefit-card.visible, .service-card.visible, .testimonial.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.benefit-card img,
-.service-card img {
+.benefit-card img, .service-card img {
   width: 60px;
   margin-bottom: 15px;
 }
 
-.benefit-card h3,
-.service-card h3 {
+.benefit-card h3, .service-card h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
-.benefit-card p,
-.service-card p {
+.benefit-card p, .service-card p {
   color: #555;
 }
 
-/* ---- Testemunhos ---- */
+/* Slider - Testemunhos */
 .slider-container {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  padding: 0 10%;
   box-sizing: border-box;
   overflow: hidden;
   margin: 0 auto 40px auto;
+  /* padding removido para evitar ghosting */
 }
 
 .slider {
@@ -239,15 +231,15 @@ nav a:hover {
 .slide {
   flex: 0 0 100%;
   box-sizing: border-box;
-  padding: 0; /* corrigido */
   display: flex;
   justify-content: center;
 }
 
 .testimonial {
   max-width: 700px;
+  width: 100%;
   margin: auto;
-  padding: 40px 20px; /* espaçamento movido aqui */
+  padding: 40px 20px;
   font-style: italic;
   position: relative;
   text-align: center;
@@ -261,44 +253,12 @@ nav a:hover {
   content: '“';
   font-size: 3rem;
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: -10px;
+  left: 10px;
   color: var(--secondary);
-  opacity: 0.3;
 }
 
-.testimonial::after {
-  content: '”';
-  font-size: 3rem;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  color: var(--secondary);
-  opacity: 0.3;
-}
-
-.testimonial-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 15px auto 10px;
-  display: block;
-  border: 2px solid var(--secondary);
-}
-
-.testimonial-name {
-  font-weight: 600;
-  margin-top: 10px;
-  color: var(--primary);
-}
-
-.testimonial-role {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* ---- CTA ---- */
+/* CTA */
 .cta {
   background: var(--secondary);
   color: #fff;
@@ -324,6 +284,7 @@ nav a:hover {
   background: #e6b800;
 }
 
+/* Footer */
 footer {
   background: var(--primary);
   color: #fff;
@@ -348,8 +309,8 @@ footer .social a:hover {
   color: var(--accent);
 }
 
-/* ---- Responsivo ---- */
-@media(max-width:900px) {
+/* Responsividade */
+@media (max-width: 900px) {
   .hero {
     flex-direction: column;
     text-align: center;
@@ -376,7 +337,8 @@ footer .social a:hover {
   }
 }
 
+/* Animações */
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(var(--cta-scale)); }
+  0% { transform: scale(1) }
+  100% { transform: scale(var(--cta-scale)) }
 }
