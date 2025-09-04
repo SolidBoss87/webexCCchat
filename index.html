@@ -83,7 +83,7 @@
   <h2>O que os clientes dizem</h2>
   <div class="slider-container">
     <div class="slider" id="slider">
-      <div class="slide testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div>
+      <div class="slide testimonial active">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div>
       <div class="slide testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div>
       <div class="slide testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div>
     </div>
@@ -122,7 +122,7 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
 
-// Slider automático com fade e sem ghosting
+// Slider automático funcional
 let index = 0;
 const slides = document.querySelectorAll('.slide');
 
@@ -142,3 +142,5 @@ setInterval(() => {
 
 </body>
 </html>
+
+
