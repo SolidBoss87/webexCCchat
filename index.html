@@ -33,7 +33,7 @@
     <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
     <a href="#contact">Agende uma Demonstração</a>
   </div>
-  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80" alt="Automatização AI" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80&format=webp" alt="Automatização AI" loading="lazy">
   <div class="scroll-cue"><span></span></div>
 </section>
 
@@ -83,28 +83,9 @@
   <h2>O que os clientes dizem</h2>
   <div class="slider-container">
     <div class="slider" id="slider">
-      
-      <div class="slide testimonial">
-        <img src="https://i.pravatar.cc/100?img=5" alt="Cliente" class="testimonial-avatar">
-        <p>"Desde que implementamos as automações da AutoAI, a nossa equipa poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</p>
-        <div class="testimonial-name">Maria Santos</div>
-        <div class="testimonial-role">Gestora de Projetos, TechCorp</div>
-      </div>
-
-      <div class="slide testimonial">
-        <img src="https://i.pravatar.cc/100?img=12" alt="Cliente" class="testimonial-avatar">
-        <p>"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipa."</p>
-        <div class="testimonial-name">João Almeida</div>
-        <div class="testimonial-role">Diretor de Operações, FinData</div>
-      </div>
-
-      <div class="slide testimonial">
-        <img src="https://i.pravatar.cc/100?img=20" alt="Cliente" class="testimonial-avatar">
-        <p>"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</p>
-        <div class="testimonial-name">Carla Ferreira</div>
-        <div class="testimonial-role">CEO, StartUpX</div>
-      </div>
-
+      <div class="slide testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div>
+      <div class="slide testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div>
+      <div class="slide testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div>
     </div>
   </div>
 </section>
@@ -131,29 +112,33 @@ const nav = document.getElementById('nav');
 menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
 
 // Scroll animation
-const observer = new IntersectionObserver(entries => { 
-  entries.forEach(entry => { 
-    if(entry.isIntersecting){ 
-      entry.target.classList.add('visible'); 
-    } 
-  }); 
-}, { threshold:0.2 });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial')
-  .forEach(el => observer.observe(el));
+document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
 
-// Slider automático
+// Slider automático sem ghosting
 let index = 0;
 const slides = document.querySelectorAll('.slide');
-const slider = document.getElementById('slider');
-setInterval(()=>{
-  index=(index+1)%slides.length; 
-  slider.style.transform=`translateX(-${index*100}%)`;
-},4000);
+
+function showSlide(i){
+  slides.forEach((slide, idx) => {
+    slide.style.display = (idx === i) ? 'flex' : 'none';
+  });
+}
+
+showSlide(index);
+
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}, 4000);
 </script>
 
 </body>
 </html>
-
-
-
