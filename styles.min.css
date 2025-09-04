@@ -212,27 +212,34 @@ nav a:hover {
   color: #555;
 }
 
-/* Slider - Testemunhos */
+/* Slider - Testemunhos com fade */
 .slider-container {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  box-sizing: border-box;
-  overflow: hidden;
   margin: 0 auto 40px auto;
-  /* padding removido para evitar ghosting */
+  overflow: hidden;
 }
 
 .slider {
-  display: flex;
-  transition: transform .5s ease-in-out;
+  position: relative;
+  width: 100%;
 }
 
 .slide {
-  flex: 0 0 100%;
-  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
   display: flex;
   justify-content: center;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
 }
 
 .testimonial {
@@ -241,7 +248,6 @@ nav a:hover {
   margin: auto;
   padding: 40px 20px;
   font-style: italic;
-  position: relative;
   text-align: center;
   line-height: 1.6;
   background: var(--card);
@@ -309,14 +315,12 @@ footer .social a:hover {
   color: var(--accent);
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
+@media(max-width:900px){
   .hero {
     flex-direction: column;
     text-align: center;
     gap: 30px;
   }
-
   nav {
     display: none;
     flex-direction: column;
@@ -327,17 +331,14 @@ footer .social a:hover {
     padding: 20px;
     border-radius: 6px;
   }
-
   nav.show {
     display: flex;
   }
-
   .menu-toggle {
     display: flex;
   }
 }
 
-/* Animações */
 @keyframes pulse {
   0% { transform: scale(1) }
   100% { transform: scale(var(--cta-scale)) }
