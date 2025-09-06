@@ -170,15 +170,16 @@ footer .social a:hover{color:var(--accent);}
   <div class="modal-content">
     <span class="close" id="closeModal">&times;</span>
     <h2>Solicite uma Demonstração</h2>
-    <form>
+    <form id="demoForm">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" required>
+      <input type="text" id="nome" name="nome" required>
       <label for="email">Email:</label>
-      <input type="email" id="email" required>
+      <input type="email" id="email" name="email" required>
       <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" rows="4" required></textarea>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
       <button type="submit">Enviar</button>
     </form>
+    <p id="formMessage" style="text-align:center;margin-top:10px;font-weight:600;"></p>
   </div>
 </div>
 
@@ -201,12 +202,37 @@ const slider=document.getElementById('slider');
 setInterval(()=>{index=(index+1)%slides.length;slider.style.transform=`translateX(-${index*100}%)`;},4000);
 
 // Modal
-const modal=document.getElementById("demoModal");
-document.getElementById("openModal").addEventListener("click",e=>{e.preventDefault();modal.style.display="flex";});
-document.getElementById("openModal2").addEventListener("click",e=>{e.preventDefault();modal.style.display="flex";});
-document.getElementById("closeModal").addEventListener("click",()=>modal.style.display="none");
-window.addEventListener("click",e=>{if(e.target==modal){modal.style.display="none";}});
+document.getElementById("openModal").addEventListener("click",e=>{e.preventDefault();document.getElementById("demoModal").style.display="flex";});
+document.getElementById("openModal2").addEventListener("click",e=>{e.preventDefault();document.getElementById("demoModal").style.display="flex";});
+document.getElementById("closeModal").addEventListener("click",()=>{document.getElementById("demoModal").style.display="none";});
+window.addEventListener("click",e=>{if(e.target==document.getElementById("demoModal")){document.getElementById("demoModal").style.display="none";}});
+
+// Envio do formulário para n8n
+document.getElementById("demoForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const nome=document.getElementById("nome").value;
+  const email=document.getElementById("email").value;
+  const mensagem=document.getElementById("mensagem").value;
+  const messageBox=document.getElementById("formMessage");
+  try{
+    const response=await fetch("https://exciting-sawfish-actively.ngrok-free.app/webhook-test/fc87f460-fba8-44ed-a79f-96d182af1b7d",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({nome,email,mensagem})
+    });
+    if(response.ok){
+      messageBox.style.color="green";
+      messageBox.textContent="✅ Pedido enviado com sucesso!";
+      document.getElementById("demoForm").reset();
+      setTimeout(()=>{document.getElementById("demoModal").style.display="none";messageBox.textContent="";},2000);
+    }else{throw new Error("Erro no envio");}
+  }catch(error){
+    messageBox.style.color="red";
+    messageBox.textContent="❌ Ocorreu um erro. Tente novamente.";
+  }
+});
 </script>
 
 </body>
 </html>
+
