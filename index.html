@@ -63,31 +63,41 @@ nav a:hover{color:var(--accent);}
 
 /* Slider */
 .slider-container {
-  position:relative;
-  width:100%;
-  max-width:900px;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .slider {
-  display:flex;
-  transition:transform 0.5s ease-in-out;
-  width:100%;
-  justify-content:center;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  min-width:100%;
-  box-sizing:border-box;
-  display:flex;
-  justify-content:center;
-  text-align:center;
-  padding:0 20px;
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.testimonial{font-style:italic; position:relative;}
-.testimonial::before{content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:var(--secondary);}
+
+.testimonial {
+  font-style: italic;
+  position: relative;
+  max-width: 700px;
+}
+.testimonial::before {
+  content: '“';
+  font-size: 3rem;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  color: var(--secondary);
+}
 
 /* CTA */
 .cta{background:var(--secondary); color:#fff; text-align:center; padding:30px 10%;}
@@ -186,9 +196,9 @@ footer .social a:hover{color:var(--accent);}
   <h2>O que os clientes dizem</h2>
   <div class="slider-container">
     <div class="slider" id="slider">
-      <div class="slide testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div>
-      <div class="slide testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div>
-      <div class="slide testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div>
+      <div class="slide"><div class="testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div></div>
+      <div class="slide"><div class="testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div></div>
+      <div class="slide"><div class="testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div></div>
     </div>
   </div>
 </section>
@@ -215,18 +225,24 @@ const nav = document.getElementById('nav');
 menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
 
 // Scroll animation
-const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } }); }, { threshold:0.2 });
+const observer = new IntersectionObserver(entries => { 
+  entries.forEach(entry => { 
+    if(entry.isIntersecting){ 
+      entry.target.classList.add('visible'); 
+    } 
+  }); 
+}, { threshold:0.2 });
 document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
 
 // Slider automático
 let index = 0;
 const slides = document.querySelectorAll('.slide');
 const slider = document.getElementById('slider');
-setInterval(()=>{index=(index+1)%slides.length; slider.style.transform=`translateX(-${index*100}%)`;},4000);
+setInterval(()=>{
+  index = (index+1) % slides.length;
+  slider.style.transform = `translateX(-${index*100}%)`;
+},4000);
 </script>
 
 </body>
 </html>
-
-
-
