@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AutoAI Solutions | Automatização Inteligente</title>
-<meta name="description" content="Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.">
-<meta name="keywords" content="Automação, AI, n8n, LLMs, Inteligência Artificial, Eficiência, Produtividade">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,104 +20,45 @@
   --cta-scale:1.05;
 }
 
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
-body {background:var(--bg); color:var(--text); line-height:1.6; scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:var(--bg);color:var(--text);line-height:1.6;scroll-behavior:smooth;}
 
 /* Header */
-header{background:var(--primary); color:#fff; padding:20px 10%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100;}
-header h1{font-weight:700; font-size:1.8rem;}
-nav a{color:#fff; margin-left:20px; text-decoration:none; font-weight:600; transition:color 0.3s;}
+header{background:var(--primary);color:#fff;padding:20px 10%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-weight:700;font-size:1.8rem;}
+nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:600;transition:color 0.3s;}
 nav a:hover{color:var(--accent);}
 
-/* Hamburger */
-.menu-toggle{display:none; flex-direction:column; cursor:pointer;}
-.menu-toggle span{height:3px; width:25px; background:#fff; margin:4px 0; transition:0.3s;}
-
 /* Hero */
-.hero{display:flex; align-items:center; justify-content:space-between; padding:50px 10%; background:linear-gradient(90deg,var(--primary) 0%,var(--secondary) 100%); color:#fff; flex-wrap:wrap; overflow:hidden; position:relative;}
-.hero-text{max-width:600px; transform:translateX(-50px); opacity:0; transition:all 1s ease-out;}
-.hero-text.visible{transform:translateX(0); opacity:1;}
-.hero-text h2{font-size:2.8rem; margin-bottom:15px;}
-.hero-text p{font-size:1.2rem; margin-bottom:20px;}
-.hero-text a{background:var(--accent); color:var(--primary); padding:12px 30px; text-decoration:none; font-weight:600; border-radius:6px; display:inline-block; margin-top:20px; transition:transform 0.6s ease, background 0.3s; animation:pulse 2s infinite alternate;}
-.hero-text a:hover{transform:scale(var(--cta-scale)); background:#e6b800;}
-.hero img{max-width:500px; border-radius:var(--radius); opacity:0; transform:translateY(50px); transition:all 1s ease-out;}
-
-/* Scroll cue */
-.scroll-cue{position:absolute; bottom:10px; left:50%; transform:translateX(-50%); width:30px; height:50px; border:2px solid #fff; border-radius:25px; display:flex; justify-content:center; align-items:flex-start; padding-top:5px;}
-.scroll-cue span{display:block; width:6px; height:6px; background:#fff; border-radius:50%; animation:scroll 1.5s infinite;}
-@keyframes scroll{0%{transform:translateY(0); opacity:1;}50%{transform:translateY(20px); opacity:0.5;}100%{transform:translateY(0); opacity:1;}}
-
-/* Sections */
-.section{padding:var(--padding) 10%;}
-.section h2{text-align:center; font-size:2rem; margin-bottom:15px;}
-.benefits,.services,.testimonials{display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); justify-items:center;}
-.benefit-card,.service-card,.testimonial{background:var(--card); padding:25px; border-radius:var(--radius); box-shadow:0 8px 20px var(--shadow); text-align:center; transition:transform 0.3s; opacity:0; transform:translateY(50px);}
-.benefit-card:hover,.service-card:hover,.testimonial:hover{transform:translateY(-5px);}
-.benefit-card.visible,.service-card.visible,.testimonial.visible{opacity:1; transform:translateY(0);}
-.benefit-card img,.service-card img{width:60px; margin-bottom:15px;}
-.benefit-card h3,.service-card h3{font-size:1.4rem; margin-bottom:10px;}
-.benefit-card p,.service-card p{color:#555;}
-
-/* Slider */
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.testimonial {
-  font-style: italic;
-  position: relative;
-  max-width: 700px;
-}
-.testimonial::before {
-  content: '“';
-  font-size: 3rem;
-  position: absolute;
-  top: -10px;
-  left: -20px;
-  color: var(--secondary);
-}
+.hero{display:flex;align-items:center;justify-content:space-between;padding:50px 10%;background:linear-gradient(90deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;flex-wrap:wrap;overflow:hidden;position:relative;}
+.hero-text{max-width:600px;transform:translateX(-50px);opacity:0;transition:all 1s ease-out;}
+.hero-text.visible{transform:translateX(0);opacity:1;}
+.hero-text h2{font-size:2.8rem;margin-bottom:15px;}
+.hero-text p{font-size:1.2rem;margin-bottom:20px;}
+.hero-text a{background:var(--accent);color:var(--primary);padding:12px 30px;text-decoration:none;font-weight:600;border-radius:6px;display:inline-block;margin-top:20px;transition:transform 0.6s ease,background 0.3s;animation:pulse 2s infinite alternate;}
+.hero-text a:hover{transform:scale(var(--cta-scale));background:#e6b800;}
+.hero img{max-width:500px;border-radius:var(--radius);opacity:0;transform:translateY(50px);transition:all 1s ease-out;}
 
 /* CTA */
-.cta{background:var(--secondary); color:#fff; text-align:center; padding:30px 10%;}
-.cta a{background:var(--accent); color:var(--primary); padding:12px 30px; text-decoration:none; font-weight:600; border-radius:6px; display:inline-block; margin-top:30px; transition:transform 0.6s ease, background 0.3s; animation:pulse 2s infinite alternate;}
-.cta a:hover{transform:scale(var(--cta-scale)); background:#e6b800;}
+.cta{background:var(--secondary);color:#fff;text-align:center;padding:30px 10%;}
+.cta a{background:var(--accent);color:var(--primary);padding:12px 30px;text-decoration:none;font-weight:600;border-radius:6px;display:inline-block;margin-top:30px;transition:transform 0.6s ease,background 0.3s;animation:pulse 2s infinite alternate;}
+.cta a:hover{transform:scale(var(--cta-scale));background:#e6b800;}
 
 /* Footer */
-footer{background:var(--primary); color:#fff; text-align:center; padding:30px 10%;}
-footer .social{margin-top:10px; display:flex; justify-content:center; gap:15px;}
-footer .social a{color:#fff; font-size:1.2rem; transition:color 0.3s;}
+footer{background:var(--primary);color:#fff;text-align:center;padding:30px 10%;}
+footer .social{margin-top:10px;display:flex;justify-content:center;gap:15px;}
+footer .social a{color:#fff;font-size:1.2rem;transition:color 0.3s;}
 footer .social a:hover{color:var(--accent);}
 
-/* Responsive */
-@media(max-width:900px){
-  .hero{flex-direction:column; text-align:center; gap:30px;}
-  nav{display:none; flex-direction:column; background:var(--primary); position:absolute; top:70px; right:10%; padding:20px; border-radius:6px;}
-  nav.show{display:flex;}
-  .menu-toggle{display:flex;}
-}
-
-/* Animations */
-@keyframes pulse{0%{transform:scale(1);}100%{transform:scale(var(--cta-scale));}}
+/* Modal */
+.modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
+.modal-content{background:#fff;padding:30px;border-radius:var(--radius);max-width:400px;width:90%;position:relative;box-shadow:0 8px 20px var(--shadow);}
+.modal-content h2{margin-bottom:15px;text-align:center;}
+.modal-content label{display:block;margin:10px 0 5px;}
+.modal-content input,.modal-content textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px;}
+.modal-content button{background:var(--secondary);color:#fff;border:none;padding:12px 20px;border-radius:6px;cursor:pointer;width:100%;font-weight:600;}
+.modal-content button:hover{background:#003f7d;}
+.close{position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;color:#333;}
 </style>
 </head>
 
@@ -127,12 +66,7 @@ footer .social a:hover{color:var(--accent);}
 
 <header>
   <h1>AutoAI Solutions</h1>
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <nav id="nav">
+  <nav>
     <a href="#benefits">Benefícios</a>
     <a href="#services">Serviços</a>
     <a href="#testimonials">Depoimentos</a>
@@ -143,108 +77,69 @@ footer .social a:hover{color:var(--accent);}
 <section class="hero">
   <div class="hero-text">
     <h2>Automatize o seu negócio com AI e n8n</h2>
-    <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente usando AI Agents, LLMs e n8n.</p>
-    <a href="#contact">Agende uma Demonstração</a>
+    <p>Reduza custos, poupe tempo e aumente a eficiência com soluções de automação inteligente.</p>
+    <a href="#" id="openModal">Agende uma Demonstração</a>
   </div>
-  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80&format=webp" alt="Automatização AI" loading="lazy">
-  <div class="scroll-cue"><span></span></div>
-</section>
-
-<section class="section" id="benefits">
-  <h2>Benefícios de Automatizar</h2>
-  <div class="benefits">
-    <div class="benefit-card">
-      <img src="https://img.icons8.com/fluency/48/000000/time.png" alt="Economia de tempo" loading="lazy">
-      <h3>Economia de Tempo</h3>
-      <p>Automatize tarefas repetitivas e concentre-se em decisões estratégicas.</p>
-    </div>
-    <div class="benefit-card">
-      <img src="https://img.icons8.com/fluency/48/000000/money-bag.png" alt="Redução de custos" loading="lazy">
-      <h3>Redução de Custos</h3>
-      <p>Implemente fluxos inteligentes que reduzem erros e otimizam recursos.</p>
-    </div>
-    <div class="benefit-card">
-      <img src="https://img.icons8.com/fluency/48/000000/artificial-intelligence.png" alt="AI Avançada" loading="lazy">
-      <h3>AI Avançada</h3>
-      <p>Use AI Agents e LLMs para decisões automáticas e respostas inteligentes.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="services">
-  <h2>Nossas Soluções</h2>
-  <div class="services">
-    <div class="service-card">
-      <img src="https://browserflow.io/images/N8N-badge.png" alt="n8n" loading="lazy">
-      <h3>Automação de Fluxos</h3>
-      <p>Crie fluxos automáticos entre aplicações sem código, reduzindo tarefas manuais.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Agents" loading="lazy">
-      <h3>AI Agents Inteligentes</h3>
-      <p>Agentes AI que aprendem com dados e tomam decisões estratégicas autonomamente.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://t4.ftcdn.net/jpg/07/56/11/69/360_F_756116963_MKdL7O7BKH1ZHicpGXHd9ys9xDMhkGr2.webp" alt="LLMs" style="width:60px;" loading="lazy">
-      <h3>Processamento de Linguagem</h3>
-      <p>Utilizamos LLMs para entender dados textuais e gerar relatórios e respostas automáticas.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="testimonials">
-  <h2>O que os clientes dizem</h2>
-  <div class="slider-container">
-    <div class="slider" id="slider">
-      <div class="slide"><div class="testimonial">"Desde que implementamos as automações da AutoAI, nossa equipe poupou mais de 10 horas por semana e os erros humanos diminuíram drasticamente."</div></div>
-      <div class="slide"><div class="testimonial">"Os AI Agents tomam decisões inteligentes em segundos, algo que antes levava horas da nossa equipe."</div></div>
-      <div class="slide"><div class="testimonial">"A integração com n8n tornou a nossa operação muito mais ágil. Estamos impressionados com os resultados!"</div></div>
-    </div>
-  </div>
+  <img src="https://images.unsplash.com/photo-1581091870622-6c3c5f86a7b6?auto=format&fit=crop&w=600&q=80&format=webp" alt="Automatização AI">
 </section>
 
 <section class="cta" id="contact">
   <h2>Pronto para automatizar o seu negócio?</h2>
-  <a href="mailto:contact@autoaisolutions.com">Solicite uma Demonstração</a>
+  <a href="#" id="openModal2">Solicite uma Demonstração</a>
 </section>
 
 <footer>
   <p>&copy; 2025 AutoAI Solutions. Todos os direitos reservados.</p>
   <div class="social">
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png"></a>
+    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png"></a>
   </div>
 </footer>
 
+<!-- Modal -->
+<div class="modal" id="demoModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Solicite uma Demonstração</h2>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
 <script>
-// Hamburger menu
-const menuToggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav');
-menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
+// Abrir modal
+document.getElementById("openModal").addEventListener("click",function(e){
+  e.preventDefault();
+  document.getElementById("demoModal").style.display="flex";
+});
+document.getElementById("openModal2").addEventListener("click",function(e){
+  e.preventDefault();
+  document.getElementById("demoModal").style.display="flex";
+});
 
-// Scroll animation
-const observer = new IntersectionObserver(entries => { 
-  entries.forEach(entry => { 
-    if(entry.isIntersecting){ 
-      entry.target.classList.add('visible'); 
-    } 
-  }); 
-}, { threshold:0.2 });
-document.querySelectorAll('.hero-text, .hero img, .benefit-card, .service-card, .testimonial').forEach(el => observer.observe(el));
-
-// Slider automático
-let index = 0;
-const slides = document.querySelectorAll('.slide');
-const slider = document.getElementById('slider');
-setInterval(()=>{
-  index = (index+1) % slides.length;
-  slider.style.transform = `translateX(-${index*100}%)`;
-},4000);
+// Fechar modal
+document.getElementById("closeModal").addEventListener("click",function(){
+  document.getElementById("demoModal").style.display="none";
+});
+window.addEventListener("click",function(e){
+  if(e.target==document.getElementById("demoModal")){
+    document.getElementById("demoModal").style.display="none";
+  }
+});
 </script>
 
 </body>
 </html>
-
 
