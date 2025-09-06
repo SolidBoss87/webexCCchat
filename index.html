@@ -62,9 +62,30 @@ nav a:hover{color:var(--accent);}
 .benefit-card p,.service-card p{color:#555;}
 
 /* Slider */
-.slider-container{position:relative; width:100%; max-width:900px; overflow:hidden;}
-.slider{display:flex; transition:transform 0.5s ease-in-out;}
-.slide{min-width:100%; box-sizing:border-box;}
+.slider-container {
+  position:relative;
+  width:100%;
+  max-width:900px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+}
+
+.slider {
+  display:flex;
+  transition:transform 0.5s ease-in-out;
+  width:100%;
+  justify-content:center;
+}
+
+.slide {
+  min-width:100%;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  padding:0 20px;
+}
 .testimonial{font-style:italic; position:relative;}
 .testimonial::before{content:'“'; font-size:3rem; position:absolute; top:-10px; left:10px; color:var(--secondary);}
 
@@ -206,4 +227,6 @@ setInterval(()=>{index=(index+1)%slides.length; slider.style.transform=`translat
 
 </body>
 </html>
+
+
 
